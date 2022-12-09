@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.Views.CategoryListPage" 
+             BackgroundColor="{StaticResource CommonBackgroundColor}"
+             Title="Showing Nearest">
+      <CollectionView ItemsSource="{Binding CategoryList}"
+                        SelectionMode="Single"
+                        SelectionChanged="CategoryList_ItemSelected"
+                        BackgroundColor="Transparent">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout  HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Vertical"
+                                        HeightRequest="200"
+                                        VerticalOptions="CenterAndExpand" Margin="0, 0, 0, 10">
+                            <Grid RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" Aspect="Fill" Source="pizza01.png"></Image>
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding MYCat.Name}"
+                                        Padding="160, 70, 0 , 0"
+                                        TextColor="White" FontSize="30"></Label>
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+      </CollectionView>
+</ContentPage>

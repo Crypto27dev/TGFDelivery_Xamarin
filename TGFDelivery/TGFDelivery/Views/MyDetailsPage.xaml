@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:customViews="clr-namespace:TGFDelivery.CustomViews" xmlns:statusView="clr-namespace:TGFDelivery.Views"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.Views.MyDetailsPage"
+             BackgroundColor="{StaticResource DarkGrayColor}"
+             Title="My Details">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All">
+            <StackLayout>
+                <StackLayout Margin="15,0"> 
+                    <Label Text="Deliver to"
+                       TextColor="White"
+                           FontAttributes="Bold"
+                           FontFamily="{StaticResource Myfont}"/>
+                    <Label Text="{Binding PostCode}"
+                       TextColor="White"
+                       FontSize="18"
+                           FontFamily="{StaticResource Myfont}"/>
+                    <Picker TextColor="White"
+                        Title="Select address"
+                        TitleColor="White"
+                        FontFamily="{StaticResource Myfont}"
+                        ItemsSource="{Binding AddressList}"
+                        SelectedItem="{Binding SelectedAddress}"
+                        SelectedIndex="{Binding SelectedAddressIndex}"                        
+                        >
+                        <Picker.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean"> 
+                                <OnPlatform.iOS>false</OnPlatform.iOS>
+                                <OnPlatform.Android>true</OnPlatform.Android>
+                            </OnPlatform>
+                        </Picker.IsVisible>
+                    </Picker>
+                    <Picker TextColor="Black"
+                        Title="Select address"
+                        TitleColor="DarkGray"
+                        FontFamily="{StaticResource Myfont}"
+                        ItemsSource="{Binding AddressList}"
+                        SelectedItem="{Binding SelectedAddress}"
+                        SelectedIndex="{Binding SelectedAddressIndex}"                        
+                        >
+                        <Picker.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean"> 
+                                <OnPlatform.iOS>true</OnPlatform.iOS>
+                                <OnPlatform.Android>false</OnPlatform.Android>
+                            </OnPlatform>
+                        </Picker.IsVisible>
+                    </Picker>
+
+                </StackLayout>
+                <BoxView BackgroundColor="Black"
+                         HeightRequest="1"/>
+                <StackLayout Margin="15">
+                    <Label Text="My details"
+                       TextColor="White"
+                           FontAttributes="Bold"
+                           FontFamily="{StaticResource Myfont}"/>
+                    
+                    <customViews:BlueEntry
+                        TextColor="White"
+                        Placeholder="First name"
+                        PlaceholderColor="White"
+                        FontFamily="{StaticResource Myfont}"
+                        Text="{Binding First_Name}"
+                        >
+                        <customViews:BlueEntry.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean"> 
+                                <OnPlatform.iOS>false</OnPlatform.iOS>
+                                <OnPlatform.Android>true</OnPlatform.Android>
+                            </OnPlatform>
+                        </customViews:BlueEntry.IsVisible>
+                    </customViews:BlueEntry>
+                    <customViews:BlueEntry
+                        TextColor="Black"
+                        Placeholder="First name"
+                        PlaceholderColor="DarkGray"
+                        FontFamily="{StaticResource Myfont}"
+                        Text="{Binding First_Name}"                        
+                        >
+                        <customViews:BlueEntry.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean"> 
+                                <OnPlatform.iOS>true</OnPlatform.iOS>
+                                <OnPlatform.Android>false</OnPlatform.Android>
+                            </OnPlatform>
+                        </customViews:BlueEntry.IsVisible>
+                    </customViews:BlueEntry>
+                    <customViews:BlueEntry
+                        TextColor="White"
+                        Placeholder="Contact number"
+                        Keyboard="Telephone"
+                        MaxLength="10"
+                        PlaceholderColor="White"
+                        FontFamily="{StaticResource Myfont}"
+                        Text="{Binding Contact_Number}"
+                        >
+                        <customViews:BlueEntry.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean"> 
+                                <OnPlatform.iOS>false</OnPlatform.iOS>
+                                <OnPlatform.Android>true</OnPlatform.Android>
+                            </OnPlatform>
+                        </customViews:BlueEntry.IsVisible>
+                    </customViews:BlueEntry>
+                    <customViews:BlueEntry
+                        TextColor="Black"
+                        Placeholder="Contact number"
+                        Keyboard="Telephone"
+                        MaxLength="10"
+                        PlaceholderColor="DarkGray"
+                        FontFamily="{StaticResource Myfont}"
+                        Text="{Binding Contact_Number}"
+                        >
+                        <customViews:BlueEntry.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean"> 
+                                <OnPlatform.iOS>true</OnPlatform.iOS>
+                                <OnPlatform.Android>false</OnPlatform.Android>
+                            </OnPlatform>
+                        </customViews:BlueEntry.IsVisible>
+                    </customViews:BlueEntry>
+                    <customViews:BlueEntry
+                        TextColor="White"
+                        Placeholder="Email"                        
+                        MaxLength="10"
+                        PlaceholderColor="White"
+                        FontFamily="{StaticResource Myfont}"
+                        Text="{Binding Email}"
+                        Keyboard="Email"
+                        >
+                        <customViews:BlueEntry.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean"> 
+                                <OnPlatform.iOS>false</OnPlatform.iOS>
+                                <OnPlatform.Android>true</OnPlatform.Android>
+                            </OnPlatform>
+                        </customViews:BlueEntry.IsVisible>
+                    </customViews:BlueEntry>
+                    <customViews:BlueEntry
+                        TextColor="Black"
+                        Placeholder="Email"                        
+                        MaxLength="10"
+                        PlaceholderColor="DarkGray"
+                        FontFamily="{StaticResource Myfont}"
+                        Text="{Binding Email}"
+                        Keyboard="Email"
+                        >
+                        <customViews:BlueEntry.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean"> 
+                                <OnPlatform.iOS>true</OnPlatform.iOS>
+                                <OnPlatform.Android>false</OnPlatform.Android>
+                            </OnPlatform>
+                        </customViews:BlueEntry.IsVisible>
+                    </customViews:BlueEntry>
+                    </StackLayout>
+                <BoxView BackgroundColor="Black"
+                         HeightRequest="1"/>
+                <StackLayout>
+                    <Label Text="Payment method"
+                       TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="15"
+                           FontFamily="{StaticResource Myfont}"/>
+                    <StackLayout Orientation="Horizontal"
+                                 BackgroundColor="{Binding Card_BackGround}"
+                                 HeightRequest="50"
+                                 >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Card_Selected}"/>
+                        </StackLayout.GestureRecognizers>
+                        <BoxView BackgroundColor="{Binding Card_FrontGround}"
+                                 WidthRequest="7"
+                                 />
+                        <Image Source="creditcard.png"
+                               Aspect="AspectFit"
+                               WidthRequest="50"
+                               Margin="15,0"/>
+                        <Label Text="Card(Visa, Mastercard, Maestro, AMEX)"
+                               TextColor="white"
+                               VerticalTextAlignment="Center"
+                               FontFamily="{StaticResource Myfont}"
+                               />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 BackgroundColor="{Binding Paypal_BackGround}"
+                                 HeightRequest="50"
+                                 >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Paypal_Selected}"/>
+                        </StackLayout.GestureRecognizers>
+                        <BoxView BackgroundColor="{Binding Paypal_FrontGround}"
+                                 WidthRequest="7"/>
+                        <Image Source="paypal.png"
+                               Aspect="AspectFit"
+                               WidthRequest="50"
+                               Margin="15,0"/>
+                        <Label Text="PayPal"
+                               TextColor="white"
+                               VerticalTextAlignment="Center"
+                               FontFamily="{StaticResource Myfont}"
+                               />
+                    </StackLayout>
+                </StackLayout>
+                <Label Text="{Binding BasketPrice}"
+                       TextColor="White"
+                       Margin="15"
+                       FontFamily="{StaticResource Myfont}"
+                       HorizontalOptions="End"
+                       FontSize="18"/>
+                <Button Text="PLACE ORDER AND PAY"
+                        BackgroundColor="#00ed00"
+                        Margin="20,0"
+                        TextColor="White"
+                        Padding="0,15"
+                        CornerRadius="5"
+                        Command="{Binding Pay_Clicked}"
+                        FontFamily="{StaticResource Myfont}"/>
+                <customViews:HyperlinkLabel 
+                    RawText="By processing you agree to the [Terms Conditions](http://microsoft.com) and the [Privacy Policy](http://microsoft.com)"
+                    TextColor="White"
+                    FontFamily="{StaticResource Myfont}"
+                    Margin="15,0"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"  
+                    />
+            </StackLayout>
+        </ScrollView>
+        <statusView:StatusView x:Name="statusView"
+                              IsVisible="False" 
+                              AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

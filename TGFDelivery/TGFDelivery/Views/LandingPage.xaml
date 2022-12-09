@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TGFDelivery.Views"
+             x:Class="TGFDelivery.Views.LandingPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             BackgroundColor="White"
+             NavigationPage.HasBackButton="False"
+             Title="Showing Nearest"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             android:TabbedPage.BarItemColor="#aca7a7"
+             android:TabbedPage.BarSelectedItemColor="#cb0003"
+             android:TabbedPage.BarBackgroundColor="#e8e8e8"
+            >
+  <local:HomePage
+    Title="Home"
+    IconImageSource="mybasket"
+    />
+  <local:DealsPage 
+    Title="Deals"
+    IconImageSource="deals"/>
+  <local:CategoryListPage  
+    Title="Landing"
+    IconImageSource="categories"         
+    />   
+  <local:AccountPage 
+    Title="Account"
+    IconImageSource="myorders"/>
+</TabbedPage>

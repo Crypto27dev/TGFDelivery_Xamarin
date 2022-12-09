@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.CustomViewCells.Select2DealViewCell">
+  <ViewCell.View>
+        <AbsoluteLayout>
+            <Grid>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ViewCellTapped}"/>
+                </Grid.GestureRecognizers>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0">
+                    <ff:CachedImage
+                            x:Name               ="_ImgUrl"
+                            Aspect               ="AspectFit"
+                            VerticalOptions      ="FillAndExpand"
+                            HorizontalOptions    ="FillAndExpand"
+                            WidthRequest         ="30"
+                            HeightRequest        ="30"
+                            Source="{Binding ImgUrl}"
+                            />
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="15*"/>
+                            <RowDefinition Height="55*"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="0">
+                            <Label 
+                                   FontFamily="{StaticResource Myfont}"
+                                   TextColor="White"
+                                   FontSize="17"
+                                   Margin="0,5,0,0"
+                                   x:Name="_Name"
+                                   Text="{Binding Name}"
+                                   />
+                        </StackLayout>
+                        <StackLayout Grid.Row="1">
+                            <Label 
+                                   FontFamily="{StaticResource Myfont}"
+                                   TextColor="White"
+                                   VerticalTextAlignment="Start"
+                                   Margin="0,0,0,10"
+                                   x:Name="_Size"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0"
+                                             Orientation="Horizontal">
+                                    <Label 
+                                    FontFamily="{StaticResource Myfont}"
+                                    TextColor="White"
+                                    HorizontalTextAlignment="Start"
+                                    VerticalTextAlignment="Center"
+                                    Margin="0,3,0,0"
+                                    x:Name="_Price"
+                                    Text="{Binding Price}"
+                                    />
+                                </StackLayout>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="87*"/>
+                                        <RowDefinition Height="10*"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="0">
+
+                                    </StackLayout>
+                                    <Button
+                                        x:Name="xName_Btn"
+                                        Grid.Row="1"
+                                        Text="{Binding BtnName}"
+                                        BackgroundColor="#00ed00"
+                                        Command="{Binding onAdd}"
+                                        CornerRadius="5"
+                                        FontFamily="{StaticResource Myfont}"
+                                        TextColor="White"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        HeightRequest="28"
+                                        Padding="5,0"
+                                    />
+                                    <StackLayout Grid.Row="2">
+
+                                    </StackLayout>
+                                </Grid>
+
+
+
+                            </Grid>
+
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </AbsoluteLayout>
+    </ViewCell.View>
+</ViewCell>

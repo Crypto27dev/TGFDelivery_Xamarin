@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource CommonBackgroundColor}"
+             x:Class="TGFDelivery.Views.DealDetailPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="1"
+                  AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90*"></RowDefinition>
+                <RowDefinition Height="10*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <AbsoluteLayout Grid.Row="0">
+                <Grid RowSpacing="1"
+                  AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="90*"></RowDefinition>
+                        <RowDefinition Height="10*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0" Orientation="Vertical">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <!--<RowDefinition Height="20*"/>-->
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Grid.RowSpan="4" Source="deal03.png" Margin="-10"/>
+                                <StackLayout Grid.Row="0" HorizontalOptions="End" Padding="0,40,10,0">
+                                    <Image Source="cross.png" HeightRequest="30" WidthRequest="30"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout Padding="10" Orientation="Vertical">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Party box" TextColor="#303030" FontSize="16"/>
+                                <Label Margin="0,-10,0,0" Text="Any 15' pizza + chicken wings + garlic bread + 4 choice of dips + ice cream bites" FontSize="16" TextColor="#303030"/>
+                                <Label Text="Includes" TextColor="#303030" FontSize="16"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout>
+                                        <Label Text="Chicken wings (8 pieces)" TextColor="#EE4436"></Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="EndAndExpand">
+                                        <Image Source="ticked.png" HeightRequest="20" WidthRequest="20"></Image>
+                                    </StackLayout>
+                                    
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout>
+                                        <Label Text="Garlic bread (1 portion)" TextColor="#EE4436"></Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="EndAndExpand">
+                                        <Image Source="ticked.png" HeightRequest="20" WidthRequest="20"></Image>
+                                    </StackLayout>
+
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout>
+                                        <Label Text="Ice cream bites (10 pieces)" TextColor="#EE4436"></Label>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="EndAndExpand">
+                                        <Image Source="ticked.png" HeightRequest="20" WidthRequest="20"></Image>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout>
+                                <Frame BackgroundColor="white" CornerRadius="5" Padding="15,10,15,10" HasShadow="False">
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="pizza" TextColor="#303030"></Label>
+                                            <Label Text="Choose your product" TextColor="#303030"></Label>
+                                        </StackLayout>
+                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Image Source="plus.png" HeightRequest="20" WidthRequest="20"></Image>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout>
+                                <Frame BackgroundColor="white" CornerRadius="5" Padding="15,10,15,10" HasShadow="False">
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="Dips(Up to 4)" TextColor="#303030"></Label>
+                                            <Label Text="Choose your product" TextColor="#303030"></Label>
+                                        </StackLayout>
+                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Image Source="plus.png" HeightRequest="20" WidthRequest="20"></Image>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Orientation="Horizontal" BackgroundColor="White">
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal" Padding="10">
+                            <Button Text="-" FontSize="20" Padding="0,-8,0,0" Margin="5,0,5,0" HeightRequest="10" WidthRequest="20" TextColor="Black" BackgroundColor="#CCCCCC"/>
+                            <Label Text="1"></Label>
+                            <Button Text="+" FontSize="20" Padding="0,-6,0,0" Margin="5,0,5,0"  HeightRequest="10" WidthRequest="20" TextColor="Black" BackgroundColor="#CCCCCC"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical" Padding="10">
+                            <Button Text="Add to basket €14,90" HeightRequest="40" Padding="-5" CornerRadius="5" TextColor="#FFFFFF" BackgroundColor="#EE4436"/>
+                        </StackLayout>
+                      
+                    </StackLayout>
+                </Grid>
+            </AbsoluteLayout>
+            <StackLayout Grid.Row="1" BackgroundColor="White">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <BoxView HeightRequest="4" Color="#FFFFFF"></BoxView>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <BoxView HeightRequest="4" Color="#EE4436"></BoxView>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <BoxView HeightRequest="4" Color="#FFFFFF"></BoxView>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <BoxView HeightRequest="4" Color="#FFFFFF"></BoxView>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="category_inactive" WidthRequest="20" HeightRequest="20"/>
+                        <Label Text="Categories" TextColor="#B2B2B2" Margin="0,-10,0,0"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="deals_active.png" HeightRequest="20" WidthRequest="20"/>
+                        <Label Text="Deals" TextColor="#EE4436" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="mybasket.png" HeightRequest="20" WidthRequest="20"/>
+                        <Label Text="My basket" TextColor="#B2B2B2" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="myorders.png" HeightRequest="20" WidthRequest="20"/>
+                        <Label Text="My orders" TextColor="#B2B2B2" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

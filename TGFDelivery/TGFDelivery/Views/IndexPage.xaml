@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.Views.IndexPage"
+             xmlns:statusView="clr-namespace:TGFDelivery.Views"
+             xmlns:customViews="clr-namespace:TGFDelivery.CustomViews"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"           
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource CommonBackgroundColor}"
+             >
+    <!--BackgroundImageSource="main_back.png"-->
+    <ContentPage.Content>
+        <AbsoluteLayout x:Name="Auth_Layout">
+            <Grid 
+                  RowSpacing="1"
+                  AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"></RowDefinition>
+                    <RowDefinition Height="40*"></RowDefinition>
+                    <RowDefinition Height="30*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" Margin="0" Spacing="0" HorizontalOptions="FillAndExpand">
+                    <Image Source="pizza_menu.png"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Margin="0" Spacing="0" HorizontalOptions="FillAndExpand" Padding="30,0,30,0">
+                    <Frame BackgroundColor="#FFFFFF" HasShadow="False" CornerRadius="5">
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout HorizontalOptions="Center">
+                                <Label Text="Please enter your postal code" TextColor="#303030" FontSize="22" FontAttributes="None" FontFamily="{StaticResource Myfont}"/>
+                            </StackLayout>
+                            <Frame BackgroundColor="#E5E5E5" HorizontalOptions="FillAndExpand"
+                                       Padding="5,0,0,0" CornerRadius="5" HasShadow="False"
+                                       BorderColor="Transparent" Margin="0,10,0,10">
+                                <customViews:WhiteEntry 
+                                    FontSize="22" Placeholder="Type in your post code" 
+                                    PlaceholderColor="#B2B2B2" FontAttributes="None"                                    
+                                    HorizontalOptions="FillAndExpand" Margin="0,0,20,0" x:Name="_PostCode"/>
+                            </Frame>
+                            <StackLayout Orientation="Vertical">
+                                <Button Text="Delivery" Clicked="onDelivery" Padding="0" BackgroundColor="#EE4436" FontSize="22"  TextColor="#FFFFFF" CornerRadius="5" Margin="0,0,0,10"/>
+                                <Button Text="Pick up at store" Clicked="onCollection" Padding="0" BackgroundColor="#FAC7C3" FontSize="22" TextColor="#EE4436" CornerRadius="5"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Margin="0" Spacing="0" HorizontalOptions="FillAndExpand">
+                    
+                </StackLayout>
+            </Grid>
+        </AbsoluteLayout>
+        <!--<Frame Margin="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#03669F" CornerRadius="5">
+            <StackLayout>
+                <Frame Padding="0">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="position" Margin="10,0,0,0" HeightRequest="25" WidthRequest="25" Aspect="AspectFit" />
+                        <customViews:WhiteEntry x:Name="_PostCode"  Placeholder="POSTCODE" FontFamily="{StaticResource Myfont}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Grid Margin="0,5,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="Transparent" BorderColor="White" Padding="5">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Image Source="COLLECTION" HeightRequest="40" WidthRequest="40" />
+                            <Label Text="COLLECTION" TextColor="White" FontFamily="{StaticResource Myfont}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" FontSize="12"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="onCollection"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="#95D600" Padding="5">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Image Source="delivery" HeightRequest="40" WidthRequest="40"/>
+                            <Label Text="DELIVERY" TextColor="White" FontFamily="{StaticResource Myfont}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" FontSize="14"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="onDelivery"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </Frame>-->
+    </ContentPage.Content>
+</ContentPage>

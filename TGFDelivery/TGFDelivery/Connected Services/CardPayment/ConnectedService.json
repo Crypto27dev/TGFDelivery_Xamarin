@@ -1,0 +1,41 @@
+﻿{
+  "ProviderId": "Microsoft.VisualStudio.ConnectedService.Wcf",
+  "Version": "15.0.40203.910",
+  "GettingStartedDocument": {
+    "Uri": "https://go.microsoft.com/fwlink/?linkid=858517"
+  },
+  "ExtendedData": {
+    "inputs": [
+      "http://www.korush.eu/BraintreeReporting/CardPayment.svc?wsdl"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, CardPayment"
+    ],
+    "references": [
+      "Acr.UserDialogs, {Acr.UserDialogs, 7.1.0.442}",
+      "e:\\TGFDelivery\\TGFDelivery\\TGFDelivery\\bin\\Debug\\netstandard2.0\\WinPizzaData.dll",
+      "e:\\TGFDelivery\\TGFDelivery\\TGFDelivery\\bin\\Debug\\netstandard2.0\\WPUtility.dll",
+      "FreshIOC, {FreshMvvm, 3.0.0}",
+      "FreshMvvm, {FreshMvvm, 3.0.0}",
+      "Newtonsoft.Json, {Newtonsoft.Json, 12.0.3}",
+      "Plugin.InputKit, {Xamarin.Forms.InputKit, 3.3.0}",
+      "RoundedBoxView.Forms.Plugin.Abstractions, {Xam.Plugins.Forms.RoundedBoxView, 1.0.0.7}",
+      "System.ComponentModel.Annotations, {System.ComponentModel.Annotations, 4.7.0}",
+      "System.Numerics.Vectors, {System.Numerics.Vectors, 4.5.0}",
+      "System.Reactive, {System.Reactive, 4.0.0}",
+      "System.Runtime, {System.Runtime, 4.3.0}",
+      "System.Runtime.InteropServices.WindowsRuntime, {System.Runtime.InteropServices.WindowsRuntime, 4.3.0}",
+      "Xamarin.Essentials, {Xamarin.Essentials, 1.3.1}",
+      "Xamarin.Forms.Core, {Xamarin.Forms, 4.4.0.991265}",
+      "Xamarin.Forms.Platform, {Xamarin.Forms, 4.4.0.991265}",
+      "Xamarin.Forms.Xaml, {Xamarin.Forms, 4.4.0.991265}",
+      "XamarinFastEntry.Behaviors, {XamarinFastEntry.Behaviors, 1.1.1}"
+    ],
+    "targetFramework": "netstandard2.0",
+    "typeReuseMode": "All"
+  }
+}

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:fastEntry="clr-namespace:XamarinFastEntrySample.FastEntry;assembly=XamarinFastEntry.Behaviors" xmlns:customViews="clr-namespace:TGFDelivery.CustomViews"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.Views.CreditCardPage"
+             BackgroundColor="{StaticResource DarkGrayColor}"
+             Title="Payment">
+    <StackLayout Margin="20">
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         Spacing="15"
+                         
+                         >
+                <Image Source="visa.png" WidthRequest="60" Aspect="AspectFill"/>
+                <Image Source="mastercard.png" WidthRequest="60" Aspect="AspectFill"/>
+                <Image Source="discover.png" WidthRequest="60" Aspect="AspectFill"/>
+                <Image Source="amex.png" WidthRequest="60" Aspect="AspectFill"/>
+            </StackLayout>
+            <customViews:WhiteEntry 
+                                   Placeholder="Card number"
+                                   PlaceholderColor="White"
+                                   FontFamily="{StaticResource Myfont}"
+                                   TextColor="White"
+                                   Text="{Binding CardNumber}"
+                                   FontSize="18"
+                                   Keyboard="Numeric"
+                                   >
+                <customViews:WhiteEntry.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"> 
+                                <OnPlatform.iOS>false</OnPlatform.iOS>
+                                <OnPlatform.Android>true</OnPlatform.Android>
+                            </OnPlatform>
+                </customViews:WhiteEntry.IsVisible>
+            </customViews:WhiteEntry>
+            <customViews:WhiteEntry 
+                                   Placeholder="Card number"
+                                   PlaceholderColor="DarkGray"
+                                   FontFamily="{StaticResource Myfont}"
+                                   TextColor="Black"
+                                   Text="{Binding CardNumber}"
+                                   FontSize="18"
+                                   Keyboard="Numeric"
+                                   >
+                <customViews:WhiteEntry.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"> 
+                        <OnPlatform.iOS>true</OnPlatform.iOS>
+                        <OnPlatform.Android>false</OnPlatform.Android>
+                    </OnPlatform>
+                </customViews:WhiteEntry.IsVisible>
+            </customViews:WhiteEntry>
+            <Label Text="Expiry date"
+                   TextColor="White"
+                   FontFamily="{StaticResource Myfont}"
+                   />
+            <StackLayout Orientation="Horizontal"
+                         >
+                <Picker TextColor="White" 
+                        HorizontalOptions="FillAndExpand"
+                        SelectedItem="{Binding Month}"
+                        ItemsSource="{Binding MonthList}"
+                        SelectedIndex="{Binding SelectedIndex}"
+                        FontFamily="{StaticResource Myfont}">
+                    <Picker.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean"> 
+                            <OnPlatform.iOS>false</OnPlatform.iOS>
+                            <OnPlatform.Android>true</OnPlatform.Android>
+                        </OnPlatform>
+                    </Picker.IsVisible>
+                </Picker>
+                <Picker TextColor="Black" 
+                        HorizontalOptions="FillAndExpand"
+                        SelectedItem="{Binding Month}"
+                        ItemsSource="{Binding MonthList}"
+                        SelectedIndex="{Binding SelectedIndex}"
+                        FontFamily="{StaticResource Myfont}">
+                    <Picker.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean"> 
+                            <OnPlatform.iOS>true</OnPlatform.iOS>
+                            <OnPlatform.Android>false</OnPlatform.Android>
+                        </OnPlatform>
+                    </Picker.IsVisible>
+                </Picker>
+                <Picker TextColor="White" 
+                        HorizontalOptions="FillAndExpand"
+                        SelectedItem="{Binding Year}"
+                        ItemsSource="{Binding YearList}"
+                        SelectedIndex="{Binding SelectedIndex}"
+                        FontFamily="{StaticResource Myfont}">
+                    <Picker.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean"> 
+                            <OnPlatform.iOS>false</OnPlatform.iOS>
+                            <OnPlatform.Android>true</OnPlatform.Android>
+                        </OnPlatform>
+                    </Picker.IsVisible>
+                </Picker>
+                <Picker TextColor="Black" 
+                        HorizontalOptions="FillAndExpand"
+                        SelectedItem="{Binding Year}"
+                        ItemsSource="{Binding YearList}"
+                        SelectedIndex="{Binding SelectedIndex}"
+                        FontFamily="{StaticResource Myfont}">
+                    <Picker.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean"> 
+                            <OnPlatform.iOS>true</OnPlatform.iOS>
+                            <OnPlatform.Android>false</OnPlatform.Android>
+                        </OnPlatform>
+                    </Picker.IsVisible>
+                </Picker>
+            </StackLayout>
+            <customViews:WhiteEntry 
+                                   Placeholder="Security code"
+                                   PlaceholderColor="White"
+                                   FontFamily="{StaticResource Myfont}"
+                                   TextColor="White"
+                                   Text="{Binding Cvv}"
+                                   FontSize="18"
+                                   MaxLength="3"
+                                   Keyboard="Numeric"
+                                   >
+                <customViews:WhiteEntry.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"> 
+                        <OnPlatform.iOS>false</OnPlatform.iOS>
+                        <OnPlatform.Android>true</OnPlatform.Android>
+                    </OnPlatform>
+                </customViews:WhiteEntry.IsVisible>
+            </customViews:WhiteEntry>
+            <customViews:WhiteEntry 
+                                   Placeholder="Security code"
+                                   PlaceholderColor="DarkGray"
+                                   FontFamily="{StaticResource Myfont}"
+                                   TextColor="Black"
+                                   Text="{Binding Cvv}"
+                                   FontSize="18"
+                                   MaxLength="3"
+                                   Keyboard="Numeric"
+                                   >
+                <customViews:WhiteEntry.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"> 
+                        <OnPlatform.iOS>true</OnPlatform.iOS>
+                        <OnPlatform.Android>false</OnPlatform.Android>
+                    </OnPlatform>
+                </customViews:WhiteEntry.IsVisible>
+            </customViews:WhiteEntry>
+            <Label Text="Your security code is the last three digits from the signature strip on the back of your card or the four digits on the front of your card if you are using American Express."
+                   TextColor="White"
+                   FontFamily="{StaticResource Myfont}"/>
+            <Button Text="PLACE ORDER AND PAY"
+                        BackgroundColor="#00ed00"
+                        Margin="20"
+                        TextColor="White"
+                        Padding="0,15"
+                        CornerRadius="5"
+                        Command="{Binding Pay_Clicked}"
+                        FontFamily="{StaticResource Myfont}"/>
+    </StackLayout>
+</ContentPage>

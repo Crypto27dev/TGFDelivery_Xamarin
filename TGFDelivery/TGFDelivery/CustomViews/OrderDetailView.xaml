@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage  
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.CustomViews.OrderDetailView">
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="30,0,30,0">
+        <Frame BackgroundColor="White" CornerRadius="5" Padding="0">
+            <StackLayout Orientation="Vertical"  Padding="0">
+                <StackLayout BackgroundColor="#005C8B" HorizontalOptions="FillAndExpand">
+                    <StackLayout HorizontalOptions="CenterAndExpand" Padding="0,15,0,15">
+                        <Label Text="Thank you for your order" TextColor="White" FontSize="20"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="50,30,50,30">
+                    <Label Text="Order # 155" TextColor="#303030" HorizontalOptions="CenterAndExpand" FontSize="18"></Label>
+                    <Label Text="1 Salami pizza" TextColor="#303030" HorizontalOptions="CenterAndExpand" FontSize="18"></Label>
+                    <Label Text="1 Spinach pizza" TextColor="#303030" HorizontalOptions="CenterAndExpand" FontSize="18"></Label>
+                    <Label Text="1 Sausage roll" TextColor="#303030" HorizontalOptions="CenterAndExpand" FontSize="18"></Label>
+                    <Label Text="1 Coke" TextColor="#303030" HorizontalOptions="CenterAndExpand" FontSize="18"></Label>
+                    <Label Text="1 brownie" TextColor="#303030" HorizontalOptions="CenterAndExpand" FontSize="18"></Label>
+                    <Label Text="1 tiramisu" TextColor="#303030" HorizontalOptions="CenterAndExpand" FontSize="18"></Label>
+                    <Button Text="Got it" TextColor="White" BackgroundColor="#EE4436" Margin="0,30,0,0"
+                            CornerRadius="5" FontSize="18" HeightRequest="30" Padding="5,0,0,0"></Button>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

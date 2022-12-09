@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:TGFDelivery.CustomViewCells" xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.Views.ProductListPage">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" >
+            <Label Text="Home /" FontSize="18" TextColor="White">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="go_Category"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="{Binding category_name}" FontSize="18" TextColor="White">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="go_Group"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="{Binding group_name}" FontSize="18" TextColor="White"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ListView x:Name="ProductList"  Footer="" 
+                          ItemsSource="{Binding ProductList}"
+                          HasUnevenRows="true" ItemSelected="ProductList_ItemSelected"
+                          HorizontalOptions="FillAndExpand" IsRefreshing="False"
+                          IsPullToRefreshEnabled="False">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid  x:Name="ItemRow" RowSpacing="0" ColumnSpacing="0"
+                           BackgroundColor="Black"  
+                                              VerticalOptions="FillAndExpand" Margin="0,2"
+                                              HorizontalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" BackgroundColor="Black">
+                            <ff:CachedImage
+                            x:Name               ="_ImgUrl"
+                            Aspect               ="AspectFill"
+                            VerticalOptions      ="FillAndExpand"
+                            HorizontalOptions    ="FillAndExpand"
+                            Source="{Binding ImgUrl}"/>
+                        </StackLayout>
+                        <StackLayout  Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent">
+                        <Label 
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="EndAndExpand" 
+                               Text="{Binding Name}" 
+                               FontFamily="{StaticResource Myfont}"
+                               TextColor="White"
+                               FontSize="25"
+                               x:Name="_Name"/>
+                        <Label  Opacity="0.5"
+                               HorizontalOptions="CenterAndExpand" 
+                               VerticalOptions="StartAndExpand" 
+                               Text="{Binding Price}" 
+                               FontFamily="{StaticResource Myfont}"
+                               TextColor="White"
+                               FontSize="16"/>
+                        </StackLayout>
+                    </Grid>
+
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:customViews="clr-namespace:TGFDelivery.CustomViews" 
+             xmlns:statusView="clr-namespace:TGFDelivery.Views"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.Views.Tab.DealsPage"
+             
+             >
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Padding="1">
+            <Label 
+                   Text="EN88JQ"
+                   x:Name="img"
+                   FontFamily="{StaticResource Myfont}"
+                   TextColor="White"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>        
+        <ToolbarItem x:Name="xName_BasketPrice" Text="0.00" Order="Primary" Priority="2" Clicked="onPrice"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="{StaticResource DarkColor}">
+            <StackLayout    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            x:Name="xName_Layout">
+                <customViews:ColoredTableView 
+                           Intent="Settings"
+                           RowHeight="100"
+                            BackgroundColor="{StaticResource DarkColor}"
+                           >
+                    <TableRoot>
+                        <TableSection x:Name="xName_Product_List">
+
+                        </TableSection>
+                    </TableRoot>
+                </customViews:ColoredTableView>
+            </StackLayout>
+            <statusView:StatusView x:Name="statusView"
+                              IsVisible="False" 
+                              AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:converters="clr-namespace:TGFDelivery.Helpers.Card"
+             xmlns:Helpers="clr-namespace:TGFDelivery.Helpers"
+             mc:Ignorable="d"            
+             x:Class="TGFDelivery.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <converters:CardNumberToImageConverter x:Key="CardConverter"
+                                                    Amex="ic_amex"
+                                                    Dinners="ic_dinersclub"
+                                                    Discover="discover.png" 
+                                                    JCB="ic_jcb"
+                                                    MasterCard="mastercard.png" 
+                                                    Visa="visa.png"
+                                                    NotRecognized="creditcard.png"/>
+
+            <converters:CardNumberToImageConverter x:Key="CardLightConverter"
+                                                    Amex="americanexpresslogo"
+                                                    Dinners="ic_dinersclub_white.png" 
+                                                    Discover="discover.png" 
+                                                    JCB="ic_jcb"
+                                                    MasterCard="mastercard.png" 
+                                                    Visa="visa.png"
+                                                    NotRecognized="sim.png"/>
+
+            <converters:CardNumberToColorConverter x:Key="CardColorConverter"
+                                                    Amex="#3177CB"
+                                                    Dinners="#1B4F8F"
+                                                    Discover="#E9752F" 
+                                                    JCB="#9E2921"
+                                                    MasterCard="#394854" 
+                                                    Visa="#2867BA"
+                                                    NotRecognized="#75849D"/>
+
+           
+            <Color x:Key="NavigationPrimary">#054a6b</Color>
+            <Helpers:NegateBooleanConverter x:Key="NegateBooleanConverter"/>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="#ffffff" />
+            </Style>
+            <Color x:Key="CommonBackgroundColor">#E5E5E5</Color>
+            <Color x:Key="Primary">#E5E9EE</Color>
+            <Color x:Key="PrimaryDark">#75849D</Color>
+            <Color x:Key="Secondary">White</Color>
+            <Color x:Key="Accent">LightGray</Color>
+            <Color x:Key="LightColor">LightGray</Color>
+            <Color x:Key="YellowColor">#FF9800</Color>
+            <Color x:Key="DarkGrayColor">#2d2d2d</Color>
+            <Color x:Key="DarkColor">#202020</Color>
+            
+            <OnPlatform x:TypeArguments="x:String" x:Key="Myfont">
+                <On Platform ="Android" Value="Oswald[wght].ttf#Oswald[wght]"/>
+                <On Platform ="iOS"     Value="Oswald"/>
+            </OnPlatform>
+            <!--NAVIGATION-->
+            <!--<Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource DarkColor}"/>
+                <Setter Property="BarTextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkColor}"/>
+            </Style>-->
+            
+            <Style TargetType="ActivityIndicator" x:Key="Status">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Color" Value="{StaticResource YellowColor}"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.Android>Oswald[wght].ttf#Oswald[wght]</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.Android>Oswald[wght].ttf#Oswald[wght]</OnPlatform.Android>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

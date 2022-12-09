@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.Views.DealPage"
+             xmlns:statusView="clr-namespace:TGFDelivery.Views"
+             BackgroundColor="Black"
+             Title="{Binding PageTitleName}"
+             >
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="LightSkyBlue" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout Orientation="Vertical"
+                         Margin="10"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Label x:Name="xName_DealName"
+                       FontFamily="{StaticResource Myfont}"
+                       TextColor="White"
+                       FontSize="20"
+                       Text="{Binding DealName}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="xName_Price"
+                       FontFamily="{StaticResource Myfont}"
+                       TextColor="White"
+                       FontSize="20"
+                       Margin="0,0,0,15"
+                           Text="{Binding Price}"/>
+                    <Button x:Name="xName_AddBasket"
+                            Text="{Binding txt_AddBasket}"
+                            FontFamily="{StaticResource Myfont}"
+                            TextColor="White"
+                            Padding="5,0"
+                            BackgroundColor="#00ed00"
+                            HorizontalOptions="EndAndExpand"
+                            Margin="0,0,0,15"
+                            IsVisible="{Binding IsVisible}"
+                            Command="{Binding AddBasket_Clicked}"
+                            HeightRequest="20"
+                            />
+                </StackLayout>
+                <CollectionView x:Name="xName_CollectionView"
+                                ItemsSource="{Binding Datas}"
+                                >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10" Margin="12">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Product_Clicked}" CommandParameter="{Binding Index}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="4*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="2*"/>
+                                </Grid.RowDefinitions>
+                                <BoxView BackgroundColor="#202020" 
+                                         CornerRadius="5"
+                                         Grid.RowSpan="3"
+                                         />
+                                <Image Source="{Binding ImgUrl}"
+                                   Grid.Row="0"
+                                   Aspect="AspectFit"
+                                   VerticalOptions="FillAndExpand"
+                                   HorizontalOptions="FillAndExpand"
+                                   WidthRequest="140"
+                                   HeightRequest="150" />
+
+                                <Label 
+                                       Grid.Row="1"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Text="{Binding Name}"
+                                       FontFamily="{StaticResource Myfont}"
+                                       TextColor="White"
+                                       x:Name="_Label"
+                                       />
+                                <Label 
+                                       Grid.Row="2"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Text="{Binding Desc}"
+                                       FontFamily="{StaticResource Myfont}"
+                                       TextColor="White"
+                                       />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <statusView:StatusView x:Name="statusView"
+                              IsVisible="False" 
+                              AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

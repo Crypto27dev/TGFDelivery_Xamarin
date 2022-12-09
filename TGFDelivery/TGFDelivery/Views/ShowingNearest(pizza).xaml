@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:hlp="clr-namespace:TGFDelivery.Helpers"
+             xmlns:Ctrl="clr-namespace:TGFDelivery.CustomViews"
+             mc:Ignorable="d"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="TGFDelivery.Views.ShowingNearest_pizza_">
+    <ContentPage.Resources>
+        <hlp:ConvertToCurrency x:Key="ConvertToCurrency"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        
+    <StackLayout>
+            <StackLayout Margin="0,-6,0,0">
+                <Grid RowSpacing="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="0,10,0,0" BackgroundColor="#E5E5E5">
+                        <StackLayout Padding="5" Margin="0,0,0,0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                         IsVisible="{Binding hasMultipleGroup}"
+                                         Margin="0,-6,0,0" Padding="2,3,2,3">
+                                <CollectionView ItemsSource="{Binding MyCategorySelected.MyGrp}" 
+                                                HeightRequest="25"  BackgroundColor="#E5E5E5"
+                                                SelectionMode="Single"
+                                                SelectionChanged="GroupCollectionChanged"
+                                                ItemsLayout="HorizontalList">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout>
+                                                <Frame BackgroundColor="#77859F"  IsVisible="{Binding IsSelected, Converter={StaticResource NegateBooleanConverter}}" Padding="10,0,10,-3" Margin="2,0,2,0" CornerRadius="20" HeightRequest="25">
+                                                    <StackLayout>
+                                                        <Label  Text="{Binding MyGr.Name}" TextColor="#0A102C"></Label>
+                                                    </StackLayout>
+                                                </Frame>
+                                                <Frame BackgroundColor="#0E1E3E" IsVisible="{Binding IsSelected}" Padding="10,0,10,-3" Margin="2,0,2,0" CornerRadius="20" HeightRequest="25">
+                                                    <StackLayout>
+                                                        <Label Text="{Binding MyGr.Name}" TextColor="#FFFFFF"/>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                   
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                            <Ctrl:ProductCardContentView  x:Name="ProsView" />
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+       
+        
+    </ContentPage.Content>
+</ContentPage>

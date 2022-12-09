@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Show Nearest"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="TGFDelivery.Views.ShowingNearest_Appetizers_">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" BackgroundColor="#FFFFFF">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="0,2,0,2">
+                        <Image Source="position.png" WidthRequest="20" HeightRequest="20"/>
+                        <Label TextColor="#707070" Text="Postal Code 17410" FontSize="20" FontAttributes="None"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#CCCCCC">
+                        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <Label Text="Pizza">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout>
+                            <Image Source="bar.png" Aspect="AspectFit" HeightRequest="39"></Image>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="Pasta">
+
+                            </Label>
+                        </StackLayout>
+                        <StackLayout>
+                            <Image Source="bar.png" Aspect="AspectFit" HeightRequest="39"></Image>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <StackLayout HorizontalOptions="FillAndExpand" Padding="0,0,0,0" Orientation="Vertical">
+                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" Padding="0,6,0,0">
+                                    <Label Text="Appetizers"/>
+                                </StackLayout>
+                                <StackLayout  HorizontalOptions="FillAndExpand" Padding="-5,0,-5,0">
+                                    <BoxView  HeightRequest="4" Color="#EE4436"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout>
+                            <Image Source="bar.png" Aspect="AspectFit" HeightRequest="39"></Image>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="Salads">
+
+                            </Label>
+                        </StackLayout>
+                        <StackLayout>
+                            <Image Source="bar.png" Aspect="AspectFit" HeightRequest="39"></Image>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="Compliments">
+
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Margin="0,-6,0,0">
+                <Grid RowSpacing="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="90*"></RowDefinition>
+                        <RowDefinition Height="10*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Padding="0,10,0,0" BackgroundColor="#E5E5E5">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0" Padding="13,10,13,10" Orientation="Vertical">
+                                    <Frame  CornerRadius="5"  HasShadow="False" Padding="0" Margin="0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#E5E5E5">
+                                        <Image HorizontalOptions="Center"
+                                                         Source="pizza_own.png"
+                                                         ClassId="Facial treatments">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Padding="13,10,13,10" Orientation="Vertical">
+                                    <Frame  CornerRadius="5"  HasShadow="False" Padding="0" Margin="0" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#E5E5E5">
+                                        <Image HorizontalOptions="Center"
+                                                         Source="pizza_half.png"
+                                                         ClassId="Facial treatments"
+                                                         >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </Frame>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout Padding="10">
+                            <ListView ItemsSource="{Binding tests}" RowHeight="150">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Margin="4">
+                                                <yummy:PancakeView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                                                    CornerRadius="6" BackgroundColor="White">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <StackLayout Padding="0">
+                                                            <Image Source="{Binding .}" HeightRequest="142"/>
+                                                        </StackLayout>
+                                                        <StackLayout  Orientation="Vertical" Padding="10">
+                                                            <StackLayout Orientation="Horizontal">
+                                                                <StackLayout  HorizontalOptions="FillAndExpand">
+                                                                    <Label Text="Salami"></Label>
+                                                                </StackLayout>
+                                                                <StackLayout Grid.Column="1" HorizontalOptions="EndAndExpand">
+                                                                    <Label Text="€7.90" TextColor="#EE4436"></Label>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                            <StackLayout Margin="0,5,0,0">
+                                                                <Label Text="26cm diameter thin crust pizza lorem ipsum bla vla val"></Label>
+                                                            </StackLayout>
+                                                            <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
+                                                                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                                                                    <Button Text="-" FontSize="20" Padding="0,-8,0,0" HeightRequest="10" WidthRequest="20" TextColor="Black" BackgroundColor="#CCCCCC"/>
+                                                                    <Label Text="1"></Label>
+                                                                    <Button Text="+" FontSize="20" Padding="0,-6,0,0"  HeightRequest="10" WidthRequest="20" TextColor="Black" BackgroundColor="#CCCCCC"/>
+                                                                </StackLayout>
+                                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                                    <Button Text="Add to cart" HeightRequest="30" Padding="-5" CornerRadius="3" TextColor="#FFFFFF" BackgroundColor="#EE4436"/>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+
+
+                                                </yummy:PancakeView>
+                                                <!--<Frame BackgroundColor="White" CornerRadius="5" >
+                                                    
+                                                </Frame>-->
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Orientation="Vertical" BackgroundColor="White">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <BoxView HeightRequest="4" Color="#EE4436"></BoxView>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <BoxView HeightRequest="4" Color="#FFFFFF"></BoxView>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <BoxView HeightRequest="4" Color="#FFFFFF"></BoxView>
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <BoxView HeightRequest="4" Color="#FFFFFF"></BoxView>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Image Source="categories.png" WidthRequest="20" HeightRequest="20"/>
+                                <Label Text="Categories" TextColor="#EE4436" Margin="0,-10,0,0"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Image Source="deals.png" HeightRequest="20" WidthRequest="20"/>
+                                <Label Text="Deals" TextColor="#B2B2B2" Margin="0,-10,0,0"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Image Source="mybasket.png" HeightRequest="20" WidthRequest="20"/>
+                                <Label Text="My basket" TextColor="#B2B2B2" Margin="0,-10,0,0"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Image Source="myorders.png" HeightRequest="20" WidthRequest="20"/>
+                                <Label Text="My orders" TextColor="#B2B2B2" Margin="0,-10,0,0"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

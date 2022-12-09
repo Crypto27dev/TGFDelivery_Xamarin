@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:abstractions="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
+          mc:Ignorable="d"
+          xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="TGFDelivery.CustomViewCells.BasketViewCell">
+  <ViewCell.View>
+            <Grid Padding="10">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ViewCellTapped}"/>
+                </Grid.GestureRecognizers>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0">
+                    <ff:CachedImage
+                            x:Name               ="_ImgUrl"
+                            Aspect               ="AspectFit"
+                            VerticalOptions      ="FillAndExpand"
+                            HorizontalOptions    ="FillAndExpand"
+                            WidthRequest         ="30"
+                            HeightRequest        ="30"
+                            Source="{Binding ImgUrl}"
+                            />
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="40*"/>
+                            <RowDefinition Height="30*"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="0">
+                            <Label 
+                                   FontFamily="{StaticResource Myfont}"
+                                   TextColor="White"
+                                   FontSize="17"
+                                   Margin="0,5,0,0"
+                                   x:Name="_Name"
+                                   Text="{Binding Name}"
+                                   />
+                        </StackLayout>
+                        <StackLayout Grid.Row="1">
+                            <Label 
+                                   FontFamily="{StaticResource Myfont}"
+                                   TextColor="White"
+                                   VerticalTextAlignment="Start"
+                                   Margin="0,0,0,10"
+                                   x:Name="_Size"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <abstractions:RoundedBoxView  
+                                                  CornerRadius="15" 
+                                                  BorderThickness="1"
+                                                  BorderColor="White"
+                                                  WidthRequest="40"
+                                                  HeightRequest="5"
+                                                  />
+                                    <Label Text="{Binding Qty}"
+                                           FontFamily="{StaticResource Myfont}"
+                                           TextColor="White"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="CenterAndExpand"
+                                           x:Name="xName_Qty"/>
+                                    <Button Text="-"
+                                           FontFamily="{StaticResource Myfont}"
+                                           TextColor="White"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Margin="0,0,80,0"
+                                            BackgroundColor="Transparent"
+                                            Padding="0"
+                                            Command="{Binding Min}"/>
+                                    <Button Text="+"
+                                       FontFamily="{StaticResource Myfont}"
+                                       TextColor="White"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="CenterAndExpand"
+                                       Margin="80,0,0,0"
+                                        BackgroundColor="Transparent"
+                                        Padding="0"
+                                        Command="{Binding Plus}"
+                                        />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Label Text="{Binding Price}"
+                                           x:Name="xName_Price"
+                                           FontFamily="{StaticResource Myfont}"
+                                           TextColor="White"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="EndAndExpand"
+                                           Margin="0,0,10,0"/>  
+                                </Grid>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+  </ViewCell.View>
+</ViewCell>

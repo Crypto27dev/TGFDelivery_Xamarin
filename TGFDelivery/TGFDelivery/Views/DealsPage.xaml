@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             Title="Deals"
+             BackgroundColor="{StaticResource CommonBackgroundColor}"
+             x:Class="TGFDelivery.Views.DealsPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="1"
+                  AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*"></RowDefinition>
+                <RowDefinition Height="0*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0">
+                <StackLayout Padding="10,5,10,5" Margin="0">
+                    <ListView ItemsSource="{Binding tests}" RowHeight="220">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="4">
+                                <yummy:PancakeView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                                                    CornerRadius="6" BackgroundColor="White">
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Padding="0" Margin="0,-10,0,0">
+                                                    <Image Source="{Binding .}" HeightRequest="142"/>
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="FillAndExpand" Padding="5" Margin="5,-10,0,0">
+                                                    <Label Text="Any 13' pizza+ any chicken starter+ garlic bread+1.5 l bottle of soft drink" FontSize="16" TextColor="#303030"></Label>
+                                                </StackLayout>
+                                                <StackLayout  Orientation="Vertical" Margin="0,-20,10,0">
+                                                    <StackLayout Grid.Column="1" HorizontalOptions="EndAndExpand">
+                                                        <Label Text="€7,90" FontSize="16" TextColor="#EE4436"></Label>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </yummy:PancakeView>
+                                <!--<Frame BackgroundColor="White" CornerRadius="5" >
+                                                    
+                                                </Frame>-->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                </StackLayout>
+            </StackLayout>
+            <!--<StackLayout Grid.Row="1" BackgroundColor="White">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <BoxView HeightRequest="4" Color="#FFFFFF"></BoxView>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <BoxView HeightRequest="4" Color="#EE4436"></BoxView>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <BoxView HeightRequest="4" Color="#FFFFFF"></BoxView>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <BoxView HeightRequest="4" Color="#FFFFFF"></BoxView>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="category_inactive" WidthRequest="20" HeightRequest="20"/>
+                        <Label Text="Categories" TextColor="#B2B2B2" Margin="0,-10,0,0"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="deals_active.png" HeightRequest="20" WidthRequest="20"/>
+                        <Label Text="Deals" TextColor="#EE4436" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="mybasket.png" HeightRequest="20" WidthRequest="20"/>
+                        <Label Text="My basket" TextColor="#B2B2B2" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="myorders.png" HeightRequest="20" WidthRequest="20"/>
+                        <Label Text="My orders" TextColor="#B2B2B2" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>-->
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

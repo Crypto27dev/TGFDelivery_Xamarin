@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:CustomView="clr-namespace:TGFDelivery.CustomViews" 
+             xmlns:statusView="clr-namespace:TGFDelivery.Views"
+             xmlns:customViewCell="clr-namespace:TGFDelivery.CustomViewCells"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.Views.BasketPage"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      BackgroundColor="{StaticResource DarkGrayColor}"
+                      Padding="5"
+                      >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="73*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0"
+                             Orientation="Horizontal"
+                             VerticalOptions="CenterAndExpand"
+                             HorizontalOptions="CenterAndExpand">
+                    <Label Text="{Binding txt_youhave}"
+                           FontFamily="{StaticResource Myfont}"
+                           TextColor="White"
+                           FontSize="Body"
+                           />
+                    <Label Text="{Binding Count}"
+                           FontFamily="{StaticResource Myfont}"
+                           TextColor="White"
+                           FontSize="Body"
+                           FontAttributes="Bold"
+                           />
+                    <Label Text="{Binding txt_items}"
+                           FontFamily="{StaticResource Myfont}"
+                           TextColor="White"
+                           FontSize="Body"
+                           FontAttributes="Bold"
+                           />
+                    <Label Text="{Binding txt_deliveryorder}"
+                           FontFamily="{StaticResource Myfont}"
+                           TextColor="White"
+                           FontSize="Body"
+                           />
+                </StackLayout>
+                <CustomView:ColoredTableView 
+                               Grid.Row="1"
+                               Intent="Settings"
+                               RowHeight="120"
+                               BackgroundColor="{StaticResource DarkGrayColor}"
+                               >
+                    <TableRoot>
+                        <TableSection x:Name="xName_List">
+                            
+                        </TableSection>
+                    </TableRoot>
+                </CustomView:ColoredTableView>
+                <StackLayout Grid.Row="2" 
+                             Margin="10">
+                    <Label Text="Basket Total:"
+                           TextColor="White"
+                           HorizontalTextAlignment="End"
+                           FontFamily="{StaticResource Myfont}"
+                           />
+                    <Label Text="{Binding TotalPrice}"
+                           TextColor="White"
+                           HorizontalTextAlignment="End"
+                           FontFamily="{StaticResource Myfont}"
+                           FontSize="Body"
+                           />
+                </StackLayout>
+                <Button Text="{Binding Btn_Name}"
+                        BackgroundColor="{Binding Btn_BackColor}"
+                        BorderWidth="1"
+                        BorderColor="{Binding Btn_BorderColor}"
+                        TextColor="{Binding Btn_TextColor}"
+                        Grid.Row="3"
+                        Margin="5"
+                        FontFamily="{StaticResource Myfont}"
+                        Command="{Binding Continue_Clicked}"
+                        IsEnabled="{Binding Btn_IsEnabled}"/>
+            </Grid>
+            <statusView:StatusView x:Name="statusView"
+                              IsVisible="False" 
+                              AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

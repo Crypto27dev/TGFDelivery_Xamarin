@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<network-security-config>
+  <base-config cleartextTrafficPermitted="true">
+    <trust-anchors>
+      <certificates src="system" />
+    </trust-anchors>
+  </base-config>
+  <!--<domain-config cleartextTrafficPermitted="true">   
+    <domain includeSubdomains="true">atoosa.co.uk</domain>
+    <domain includeSubdomains="true">korush.eu</domain>
+	<domain includeSubdomains="true">tempuri.org</domain>
+    <domain includeSubdomains="true">Localhost</domain>
+	<domain includeSubdomains="true">84.151.161.159</domain>
+  <domain includeSubdomains="true">93.219.34.166</domain>
+  </domain-config>-->
+</network-security-config>

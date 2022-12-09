@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.CustomViewCells.SideViewCell">
+  <ViewCell.View>
+        <AbsoluteLayout>
+            <AbsoluteLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </AbsoluteLayout.GestureRecognizers>
+            <Grid BackgroundColor="{StaticResource DarkGrayColor}"
+              x:Name="xName_Layout"
+              AbsoluteLayout.LayoutBounds="0,0,1,1"
+              AbsoluteLayout.LayoutFlags="All"
+              >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="60*"/>
+                    <ColumnDefinition Width="30*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="xName_Portion"
+                       FontFamily="{StaticResource Myfont}"
+                       TextColor="White"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       Grid.Column="0"/>
+                <Label 
+                       FontFamily="{StaticResource Myfont}"
+                       TextColor="White"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="StartAndExpand"
+                       Grid.Column="1"
+                       x:Name="xName_Name"/>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="40*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="V.png"
+                               Grid.Column="0"
+                           Margin="5"
+                           />
+                    <Image Source="G.png"
+                               Grid.Column="1"
+                           Margin="5"
+                           />
+                    <Button Grid.Column="2"
+                        x:Name="xName_BtnClose"
+                        Text="x"
+                        Padding="0,0,0,5"
+                        TextColor="White"
+                        FontSize="25"
+                        WidthRequest="30"
+                        BackgroundColor="Transparent"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="False"
+                        Clicked="onClose"
+                        />
+                </Grid>
+            </Grid>
+        </AbsoluteLayout>
+    </ViewCell.View>
+</ViewCell>
