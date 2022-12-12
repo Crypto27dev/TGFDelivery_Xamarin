@@ -1,9 +1,62 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="TGFDelivery.Views.HomePage">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             Title="Home"
+             BackgroundColor="{StaticResource CommonBackgroundColor}"
+             x:Class="TGFDelivery.Views.HomePage">
     <ContentPage.Content>
-        <Label>Home Page</Label>
+        <Grid RowSpacing="1"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*" />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <AbsoluteLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="10,5,10,5" Margin="0">
+                <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional" Margin="4, 40, 4, 4" VerticalOptions="FillAndExpand" BackgroundColor="Coral">
+                    <Image Source="home1.png" Aspect="Fill" />
+                </ContentView>
+                <Image Source="flags.png" Aspect="AspectFill" />
+            </AbsoluteLayout>
+            <StackLayout Grid.Row="1" Grid.Column="0" Padding="10,5,5,5" Margin="0">
+                <ContentView Margin="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Coral">
+                    <Image Source="home2.png" Aspect="Fill" HeightRequest="100" WidthRequest="100" />
+                </ContentView>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Grid.Column="1" Padding="5,5,10,5" Margin="0">
+                <ContentView Margin="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Coral">
+                    <Image Source="home3.png" Aspect="Fill" HeightRequest="100" WidthRequest="100" />
+                </ContentView>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Padding="10,5,10,5" Margin="0">
+                <ContentView Margin="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Coral">
+                    <Image Source="home4.png" Aspect="Fill" HeightRequest="100" WidthRequest="100" />
+                </ContentView>
+            </StackLayout>
+            <AbsoluteLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Padding="10,5,10,5" Margin="0">
+                <ContentView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional" Margin="4" Padding="5,5,5,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="You're ordering from:" FontSize="16" TextColor="#888" HorizontalTextAlignment="Center"></Label>
+                        <Label Text="Cuffley" FontSize="22" TextColor="#00668b" HorizontalTextAlignment="Center"></Label>
+                        <Label Text="20 Station Road, Cuffley, Potters Bar, EN6 4HH" FontSize="16" TextColor="#888" HorizontalTextAlignment="Center"></Label>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <BoxView VerticalOptions="Center" HorizontalOptions="Center" Color="Green" CornerRadius="60" WidthRequest="20" HeightRequest="20"/>
+                            <Label Text="OPEN UNTIL 23:00" FontSize="17" TextColor="#666" HorizontalTextAlignment="Center"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+                <Image Source="boots.png" AbsoluteLayout.LayoutBounds="1, 1" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            </AbsoluteLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
