@@ -3,7 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:TGFDelivery.Views"
+             xmlns:Ctrl="clr-namespace:TGFDelivery.CustomViews"
              mc:Ignorable="d"
+             NavigationPage.HasBackButton="True"
+             Title="CUSTOMIZE"
              x:Class="TGFDelivery.Views.SideTabbedPage2Toppings">
-    
+    <ContentPage Title="SAUCE" />
+    <ContentPage Title="CHEESE" />
+    <local:ToppingsPage Title="TOPPINGS"/>
 </TabbedPage>

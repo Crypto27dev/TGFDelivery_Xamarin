@@ -100,9 +100,7 @@ namespace TGFDelivery.Views
             }
 
             ProsView.Products = new System.Collections.ObjectModel.ObservableCollection<ProductsModel>(_viewModel.MyGroupSelected.MyPros);
-
             // _viewModel.MyGroupSelected = new GroupModel();
-
         }
 
     }

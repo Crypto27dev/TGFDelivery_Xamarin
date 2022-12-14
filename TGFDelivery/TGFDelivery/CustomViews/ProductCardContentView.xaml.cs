@@ -9,6 +9,8 @@ using Xamarin.Forms.Xaml;
 using WinPizzaData;
 using TGFDelivery.Models;
 using TGFDelivery.Helpers;
+using System.Windows.Input;
+using TGFDelivery.Views;
 
 namespace TGFDelivery.CustomViews
 {
@@ -33,12 +35,18 @@ namespace TGFDelivery.CustomViews
             set { SetValue(ProductsProperty, value); }
         }
 
-
-
-    public ProductCardContentView()
+        private async void onCustomize(object sender, EventArgs e)
+        {
+            Button BtnCustomize = sender as Button;
+            if (BtnCustomize != null)
+            {
+                await App._NavigationPage.PushAsync(new SideTabbedPage2Toppings());
+            }
+        }
+        public ProductCardContentView()
         {
             InitializeComponent();
-           BindingContext = this;
+            BindingContext = this;
         }
     }
 }

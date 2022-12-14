@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="TGFDelivery.CustomViews.ProductCardCustomView">
+    <ContentView.Content>
+        <StackLayout Padding="10,3,10,3" Margin="0,0,0,0">
+            <ListView ItemsSource="{Binding Products}" RowHeight="120">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="4">
+                                <yummy:PancakeView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                                                    CornerRadius="6" BackgroundColor="White">
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Padding="0" VerticalOptions="FillAndExpand">
+                                            <Image Source="{Binding MyPro.ImgUrl}" Aspect="AspectFill" WidthRequest="110" HeightRequest="110"/>
+                                        </StackLayout>
+                                        <StackLayout  Orientation="Vertical" Padding="8">
+                                            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                                                <StackLayout>
+                                                    <Label Text="{Binding MyPro.Name}" FontSize="18" TextColor="#303030"></Label>
+                                                </StackLayout>
+                                                <StackLayout>
+                                                    <Label Text="{Binding Calorie, StringFormat='{0}kcal'}" FontSize="16" TextColor="#6f6f6f"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image IsVisible="{Binding IsVegan}" Source="calorie.png" Aspect="AspectFill" WidthRequest="20" HeightRequest="20"/>
+                                                    <Label IsVisible="{Binding IsVegan}" Text="Vegan Friendly" FontSize="16" TextColor="#6f6f6f"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+
+
+                                </yummy:PancakeView>
+                                <!--<Frame BackgroundColor="White" CornerRadius="5" >
+                                                    
+                                                </Frame>-->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

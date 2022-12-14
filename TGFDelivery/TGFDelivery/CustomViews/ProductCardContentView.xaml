@@ -34,7 +34,7 @@
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal" Margin="0,5,0,0">
                                                 <StackLayout HorizontalOptions="FillAndExpand">
-                                                    <Button Text="Customize" HeightRequest="30" Padding="-5" CornerRadius="3" TextColor="#EE4436" BackgroundColor="#FAC7C3"/>
+                                                    <Button Text="Customize" Clicked="onCustomize" CommandParameter="{Binding MyPro.Name}" HeightRequest="30" Padding="-5" CornerRadius="3" TextColor="#EE4436" BackgroundColor="#FAC7C3"/>
                                                 </StackLayout>
                                                 <StackLayout HorizontalOptions="FillAndExpand">
                                                     <Button Text="Add to cart" HeightRequest="30" Padding="-5" CornerRadius="3" TextColor="#FFFFFF" BackgroundColor="#EE4436"/>

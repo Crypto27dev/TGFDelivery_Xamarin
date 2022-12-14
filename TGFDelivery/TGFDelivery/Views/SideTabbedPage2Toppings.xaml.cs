@@ -17,7 +17,7 @@ namespace TGFDelivery.Views
         public SideTabbedPage2Toppings()
         {
             InitializeComponent();
-            this.BarBackgroundColor = Color.FromHex("#606060");
+
             this.On<Xamarin.Forms.PlatformConfiguration.Android>().SetIsSwipePagingEnabled(false);
             On<Android>().SetIsSmoothScrollEnabled(false);
             On<Android>().SetOffscreenPageLimit(1);

@@ -24,8 +24,6 @@ namespace TGFDelivery.Models
         }
     }
 
-
-
     public class ProductsModel: FoodItem
     {
         public ProductsModel()
@@ -45,6 +43,39 @@ namespace TGFDelivery.Models
             set { _MYPro = value;OnPropertyChanged(); }
         }        
     }
+    public class ToppingsModel : FoodItem
+    {
+        int _Calorie;
+        public int Calorie {
+            get { return _Calorie; }
+            set { _Calorie = value; OnPropertyChanged(); }
+        }
+
+        bool isVegan;
+        public bool IsVegan
+        {
+            get { return isVegan; }
+            set { isVegan = value; OnPropertyChanged(); }
+        }
+
+        public ToppingsModel()
+        {
+            IsSelected = false;
+        }
+        public ToppingsModel(WPBaseProduct Item)
+        {
+            IsSelected = false;
+            MyPro = Item;
+            MyPro.ImgUrl = StoreDataSource.DeStoreProfile.DeStoreLinks.Photo + MyPro.ImgUrl;
+        }
+        WPBaseProduct _MYPro;
+        public WPBaseProduct MyPro
+        {
+            get { return _MYPro; }
+            set { _MYPro = value; OnPropertyChanged(); }
+        }
+    }
+
     public class  GroupModel: FoodItem
     {
         public GroupModel()
