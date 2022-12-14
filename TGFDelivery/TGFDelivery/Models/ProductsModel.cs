@@ -45,18 +45,27 @@ namespace TGFDelivery.Models
     }
     public class ToppingsModel : FoodItem
     {
-        int _Calorie;
-        public int Calorie {
-            get { return _Calorie; }
-            set { _Calorie = value; OnPropertyChanged(); }
+        int _calorie;
+        public int Calorie 
+        {
+            get { return _calorie; }
+            set { _calorie = value; OnPropertyChanged(); }
         }
 
-        bool isVegan;
+        bool _isVegan;
         public bool IsVegan
         {
-            get { return isVegan; }
-            set { isVegan = value; OnPropertyChanged(); }
+            get { return _isVegan; }
+            set { _isVegan = value; OnPropertyChanged(); }
         }
+
+        int _order;
+        public int Order
+        {
+            get { return _order; }
+            set { _order = value; OnPropertyChanged(); }
+        }
+
 
         public ToppingsModel()
         {
@@ -65,6 +74,7 @@ namespace TGFDelivery.Models
         public ToppingsModel(WPBaseProduct Item)
         {
             IsSelected = false;
+            Order = 0;
             MyPro = Item;
             MyPro.ImgUrl = StoreDataSource.DeStoreProfile.DeStoreLinks.Photo + MyPro.ImgUrl;
         }

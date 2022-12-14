@@ -37,5 +37,21 @@ namespace TGFDelivery.CustomViews
         {
             InitializeComponent();
         }
+
+        public ToppingsModel PreviousItem { set; get; }
+
+        private void ItemSelectionEvent(object sender, SelectedItemChangedEventArgs e)
+        {   
+            var currentItem = e.SelectedItem as ToppingsModel;
+            if (PreviousItem != null)
+            {
+                PreviousItem.IsSelected = false;
+            }
+            if (currentItem != null)
+            {
+                currentItem.IsSelected = true;
+                PreviousItem = currentItem;
+            }
+        }
     }
 }

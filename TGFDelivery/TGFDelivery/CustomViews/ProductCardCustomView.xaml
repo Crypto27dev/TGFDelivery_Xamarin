@@ -4,38 +4,62 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:helpers="clr-namespace:TGFDelivery.Helpers"
+             xmlns:CustomViews="clr-namespace:TGFDelivery.CustomViews"
              mc:Ignorable="d"
              x:Class="TGFDelivery.CustomViews.ProductCardCustomView">
     <ContentView.Content>
         <StackLayout Padding="10,3,10,3" Margin="0,0,0,0">
-            <ListView ItemsSource="{Binding Products}" RowHeight="120">
+            <ListView ItemsSource="{Binding Products}" RowHeight="110" SelectionMode="Single" ItemSelected="ItemSelectionEvent">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Margin="4">
-                                <yummy:PancakeView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
-                                                                    CornerRadius="6" BackgroundColor="White">
-                                    <StackLayout Orientation="Horizontal">
-                                        <StackLayout Padding="0" VerticalOptions="FillAndExpand">
-                                            <Image Source="{Binding MyPro.ImgUrl}" Aspect="AspectFill" WidthRequest="110" HeightRequest="110"/>
+                                <yummy:PancakeView  CornerRadius="6" BackgroundColor="White">
+                                    <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" Padding="0,0,8,0">
+                                        <StackLayout Padding="0" WidthRequest="100" HeightRequest="100">
+                                            <Image Source="{Binding MyPro.ImgUrl}" Aspect="AspectFill" />
                                         </StackLayout>
-                                        <StackLayout  Orientation="Vertical" Padding="8">
-                                            <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                                                <StackLayout>
+                                        <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                                <StackLayout Margin="0">
                                                     <Label Text="{Binding MyPro.Name}" FontSize="18" TextColor="#303030"></Label>
                                                 </StackLayout>
                                                 <StackLayout>
                                                     <Label Text="{Binding Calorie, StringFormat='{0}kcal'}" FontSize="16" TextColor="#6f6f6f"></Label>
                                                 </StackLayout>
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Image IsVisible="{Binding IsVegan}" Source="calorie.png" Aspect="AspectFill" WidthRequest="20" HeightRequest="20"/>
-                                                    <Label IsVisible="{Binding IsVegan}" Text="Vegan Friendly" FontSize="16" TextColor="#6f6f6f"></Label>
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                                    <StackLayout WidthRequest="20" VerticalOptions="CenterAndExpand">
+                                                        <Image IsVisible="{Binding IsVegan}" Source="calorie.png" Aspect="AspectFill"/>
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="CenterAndExpand">
+                                                        <Label IsVisible="{Binding IsVegan}" Text="Vegan Friendly" FontSize="16" TextColor="#6f6f6f"></Label>
+                                                    </StackLayout>
                                                 </StackLayout>
                                             </StackLayout>
                                         </StackLayout>
+                                        <StackLayout VerticalOptions="Center">
+                                            <CustomViews:SpinBox
+                                                    AmountValue="{Binding Order}"
+                                                    IsVisible="{Binding IsSelected}"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="110"
+                                                    MinimumValue="0"
+                                                    MaximumValue="10"
+                                            />
+                                            <StackLayout HorizontalOptions="FillAndExpand" Padding="0,0,10,0">
+                                                <Label 
+                                                    IsVisible="{Binding IsSelected, Converter={StaticResource NegateBooleanConverter}}" 
+                                                    WidthRequest="30" 
+                                                    Text="{Binding Order}" 
+                                                    TextColor="#4f4f4f" 
+                                                    FontSize="24" 
+                                                    VerticalTextAlignment="Center">
+                                                </Label>
+                                            </StackLayout>
+                                        </StackLayout>
                                     </StackLayout>
-
-
                                 </yummy:PancakeView>
                                 <!--<Frame BackgroundColor="White" CornerRadius="5" >
                                                     

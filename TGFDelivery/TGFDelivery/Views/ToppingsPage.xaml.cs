@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using TGFDelivery.Models;
+using WinPizzaData;
 
 namespace TGFDelivery.Views
 {
@@ -31,6 +32,7 @@ namespace TGFDelivery.Views
                     },
                     Calorie = 20 + i * 2,
                     IsVegan = i % 2 == 0 ? true : false,
+                    Order = 0
                 };
                 temps.Add(model);
             }

@@ -386,10 +386,16 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\calorie.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\minus_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\plus_btn.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionTGFDeliveryAndroidHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionTGFDeliveryAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadUnhandledDeviceExceptionTGFDeliveryAndroidHideInfoBar="True" XamarinHotReloadDebuggerTimeoutExceptionTGFDeliveryAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
