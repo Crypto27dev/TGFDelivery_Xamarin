@@ -30,7 +30,10 @@ namespace TGFDelivery.CustomViews
         public int AmountValue
         {
             get { return (int)GetValue(AmountValueProperty); }
-            set { _OrderValue.Text = Convert.ToString(value); SetValue(AmountValueProperty, value); }
+            set { 
+                _OrderValue.Text = Convert.ToString(value);
+                SetValue(AmountValueProperty, value); 
+            }
         }
 
         public int MinimumValue

@@ -50,7 +50,7 @@
                                             />
                                             <StackLayout HorizontalOptions="FillAndExpand" Padding="0,0,10,0">
                                                 <Label 
-                                                    IsVisible="{Binding IsSelected, Converter={StaticResource NegateBooleanConverter}}" 
+                                                    IsVisible="{Binding Visible}" 
                                                     WidthRequest="30" 
                                                     Text="{Binding Order}" 
                                                     TextColor="#4f4f4f" 

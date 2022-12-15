@@ -20,7 +20,7 @@ namespace TGFDelivery.Models
         public bool IsSelected
         {
             get { return _IsSelected; }
-            set { _IsSelected = value; OnPropertyChanged(); }
+            set { _IsSelected = value; OnPropertyChanged(); OnPropertyChanged("Visible"); }
         }
     }
 
@@ -63,7 +63,15 @@ namespace TGFDelivery.Models
         public int Order
         {
             get { return _order; }
-            set { _order = value; OnPropertyChanged(); }
+            set { _order = value; OnPropertyChanged(); OnPropertyChanged("Visible"); }
+        }
+
+        public bool Visible
+        {
+            get
+            {
+                return !IsSelected && Order > 0;
+            }
         }
 
 
