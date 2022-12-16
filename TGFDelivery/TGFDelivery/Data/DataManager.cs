@@ -1,18 +1,12 @@
 ﻿using Acr.UserDialogs;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 using TGFDelivery.Helpers.Data;
 using TGFDelivery.Models.PageModel;
 using TGFDelivery.Models.ServiceModel;
-using TGFDelivery.Views;
 using TGFDelivery.Services;
 using WinPizzaData;
 using WPUtility;
@@ -22,7 +16,7 @@ namespace TGFDelivery.Data
     public static class DataManager
     {
 
-        public static ServersUrl AdjustServcePoints(ServersUrl DeServersUrl,FoodStoreProfile storeProfile)
+        public static ServersUrl AdjustServcePoints(ServersUrl DeServersUrl, FoodStoreProfile storeProfile)
         {
             storeProfile.DeStoreLinks.Logo = storeProfile.DeStoreLinks.Logo.Replace(AppSettings.InternalIP, AppSettings.ExternalIP);
             storeProfile.DeStoreLinks.Photo = storeProfile.DeStoreLinks.Photo.Replace(AppSettings.InternalIP, AppSettings.ExternalIP);
@@ -103,7 +97,7 @@ namespace TGFDelivery.Data
             if (!IsGetStoreProfile)
             {
                 // If don't get store profile, redirect to share site
-                await UserDialogs.Instance.AlertAsync("Server Error", "Error", "Cancel");                
+                await UserDialogs.Instance.AlertAsync("Server Error", "Error", "Cancel");
             }
             // Basket process
             if (BASKET == null)
@@ -376,7 +370,7 @@ namespace TGFDelivery.Data
             {
                 for (int i = 0; i <= DeOrderLine.DeMixedOption.DeSideDef.Number; i++)
                 {
-                    
+
                 }
             }
 
@@ -1066,7 +1060,7 @@ namespace TGFDelivery.Data
             {
                 BASKET_SELECTED_ORDERLINEID = Int32.Parse(OrderLineID);
             }
-            
+
             return DeModel;
         }
         public static ResultAddToOfferOrder AddToDeal(string CatID, string GroupID, string ProductID, string OfferIndex)
@@ -1097,7 +1091,7 @@ namespace TGFDelivery.Data
             DeOfferLine.CalcDealPrice();
 
             // Store basket in session
-            DEAL_ORDERLINE =TheOrderLine as OfferOrderLine;
+            DEAL_ORDERLINE = TheOrderLine as OfferOrderLine;
 
             if (DeOfferLine.IsAllItemPicked())
             {
@@ -1402,7 +1396,7 @@ namespace TGFDelivery.Data
             }
             set
             {
-                if(value == 2 || value == 4)
+                if (value == 2 || value == 4)
                 {
                     _HalfNHalf_SideNumber = value;
                 }
@@ -1426,7 +1420,7 @@ namespace TGFDelivery.Data
         public static OrderLine CUSTOM_ORDERLINE { get; set; }
         public static OrderLine TEMP_ORDERLINE { get; set; }
 
-        
+
         public static string HALF_PRODUCT_0 = "Half_Product_0";
         public static string HALF_PRODUCT_1 = "Half_Product_1";
         public static string HALF_PRODUCT_2 = "Half_Product_2";

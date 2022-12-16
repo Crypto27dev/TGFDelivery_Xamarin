@@ -1,7 +1,4 @@
 ﻿using FreshMvvm;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
@@ -16,6 +13,6 @@ namespace TGFDelivery.CustomViews
             On<Android>().SetOffscreenPageLimit(1);
         }
 
-        
+
     }
 }

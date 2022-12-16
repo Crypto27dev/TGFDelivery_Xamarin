@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TGFDelivery.Data;
-using TGFDelivery.Helpers;
-using TGFDelivery.Models.ServiceModel;
-using WinPizzaData;
+﻿using TGFDelivery.Helpers;
 
 namespace TGFDelivery.Models
 {
@@ -28,8 +20,8 @@ namespace TGFDelivery.Models
         public string Login
         {
             get { return Languages.Login.ToUpper(); }
-        }       
-       
+        }
+
         #endregion
     }
 }

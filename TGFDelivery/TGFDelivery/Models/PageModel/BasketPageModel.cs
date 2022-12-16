@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows.Input;
 using TGFDelivery.Data;
 using TGFDelivery.Helpers.Data;
@@ -137,7 +135,7 @@ namespace TGFDelivery.Models.PageModel
             set { _ImgUrl = value; OnPropertyChanged(); }
         }
         private string _Name { get; set; }
-        public string Name 
+        public string Name
         {
             get { return _Name; }
             set { _Name = value; OnPropertyChanged(); }
@@ -205,7 +203,7 @@ namespace TGFDelivery.Models.PageModel
             {
                 this.Price = res.CurrentOrderLinePrice.ToString();
                 this.Qty = (Int32.Parse(this.Qty) - 1).ToString();
-                
+
                 this.ButtonClicked?.Invoke(this, res);
             }
         }
@@ -225,7 +223,7 @@ namespace TGFDelivery.Models.PageModel
             {
                 return;
             }
-            
+
         }
     }
 

@@ -1,17 +1,7 @@
-﻿using Acr.UserDialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TGFDelivery.CustomViews;
+﻿using System;
 using TGFDelivery.Data;
-using TGFDelivery.Helpers;
 using TGFDelivery.Models;
-using TGFDelivery.Models.ServiceModel;
-using TGFDelivery.Resources;
 using TGFDelivery.Views.Menu;
-using TGFDelivery.Views.Tab;
 using WPUtility;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,9 +21,9 @@ namespace TGFDelivery.Views
 
         private void onCollection(object sender, EventArgs e)
         {
-            
+
         }
-       
+
         private async void onDelivery(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(_PostCode.Text))
@@ -64,7 +54,7 @@ namespace TGFDelivery.Views
             }
         }
 
-        
+
         private MenuPage proc_onDelivery()
         {
 

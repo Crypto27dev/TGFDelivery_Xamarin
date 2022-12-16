@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TGFDelivery.Interfaces;
-using Xamarin.Forms;
+﻿using TGFDelivery.Interfaces;
 using TGFDelivery.Resources;
+using Xamarin.Forms;
 
 namespace TGFDelivery.Helpers
 {

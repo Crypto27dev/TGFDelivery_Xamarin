@@ -1,14 +1,11 @@
 ﻿using Acr.UserDialogs;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Text;
 using System.Windows.Input;
 using TGFDelivery.Data;
 using TGFDelivery.Views;
 using Xamarin.Forms;
-using static WPUtility.WinPizzaEnums;
 
 namespace TGFDelivery.Models.PageModel
 {
@@ -34,7 +31,7 @@ namespace TGFDelivery.Models.PageModel
             get { return _SelectedAddress; }
             set { _SelectedAddress = value; OnPropertyChanged(); }
         }
-        private int _SelectedAddressIndex { get; set;}
+        private int _SelectedAddressIndex { get; set; }
         public int SelectedAddressIndex
         {
             get { return _SelectedAddressIndex; }
@@ -140,7 +137,7 @@ namespace TGFDelivery.Models.PageModel
                 {
                     App.Stop(this);
                 }
-               
+
             }
         }
         private void com_Paypal_Selected()

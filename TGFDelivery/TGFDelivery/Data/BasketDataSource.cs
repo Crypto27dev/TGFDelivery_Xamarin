@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Globalization;
 using TGFDelivery.Models.ServiceModel;
 using WinPizzaData;
 using WPUtility;
-using System.Collections.ObjectModel;
-using System.Globalization;
 
 namespace TGFDelivery.Data
 {
@@ -162,7 +160,7 @@ namespace TGFDelivery.Data
             }
         }
     }
-   
+
     public class OrderHeaderData : BindableBase
     {
         public OrderHeaderData(OrdertHeader Value)
@@ -172,7 +170,7 @@ namespace TGFDelivery.Data
                 OrderHeader = Value;
                 if (Value.DePeople != null)
                     DePeople = new PeopleData(Value.DePeople);
-               // OrderHeader.DeOrderTypeData = OrderHeaderDataSource.GetServingObject(DeOrderType);
+                // OrderHeader.DeOrderTypeData = OrderHeaderDataSource.GetServingObject(DeOrderType);
                 /// check if statuc is on cooking and this sation is prep
                 /// then start timer checking for status of cooking.              
             }
@@ -255,7 +253,7 @@ namespace TGFDelivery.Data
             {
                 if (DeSts.ToString() != value)
                 {
-                    _OrderHeader.DeSts = (WinPizzaEnums.OrderStatus)Enum.Parse(typeof(WinPizzaEnums.OrderStatus), value, false); 
+                    _OrderHeader.DeSts = (WinPizzaEnums.OrderStatus)Enum.Parse(typeof(WinPizzaEnums.OrderStatus), value, false);
                     OnPropertyChanged();
                 }
             }
@@ -358,7 +356,7 @@ namespace TGFDelivery.Data
                 {
                     DeOrderLines.Clear();
                     DeOrderLines.Add(new OrderLineData(p));
-                  
+
                 });
             else
                 DeOrder = new Basket();
@@ -376,9 +374,10 @@ namespace TGFDelivery.Data
 
         public void CopyTo(List<OrderLine> DeOrdLines)
         {
-            DeOrdLines.ForEach(p => {
+            DeOrdLines.ForEach(p =>
+            {
                 DeOrderLines.Add(new OrderLineData(p));
-              
+
             });
         }
         private List<OrderLineData> _DeOrderLines = new List<OrderLineData>();
@@ -406,9 +405,9 @@ namespace TGFDelivery.Data
     }
     public sealed class BasketDataSource
     {
-       
+
         public static BasketDataSource _BasketDataSource = new BasketDataSource();
-        static private Orderdata _BasketData= new Orderdata();
+        static private Orderdata _BasketData = new Orderdata();
 
         static public Orderdata BasketData
         {
@@ -436,13 +435,13 @@ namespace TGFDelivery.Data
             if (IsOfferInProfress)
             //  if(DeOrderLineData.IsDeal)
             {
-               // DoHandelMealDealPart(DeProduct, PrGrp, VatRate);
+                // DoHandelMealDealPart(DeProduct, PrGrp, VatRate);
             }
             else
             {
                 //var OrderLineObj = new OrderLine(DeProduct, GetPrintingGrp(DeProduct.DePrintingGrp), VatRate, SelectedGuest, StoreDataSource.GetCurrentStore().CurrentMenuID);
-             //   TheOrder.DeOrder.AddLine(OrderLineObj);
-              //  ProductImg = OrderLineObj.SelectedProduct.ImgUrl;              
+                //   TheOrder.DeOrder.AddLine(OrderLineObj);
+                //  ProductImg = OrderLineObj.SelectedProduct.ImgUrl;              
             }
         }
         public static void CreateOrder(string PostCode, string OrderType)
@@ -456,12 +455,12 @@ namespace TGFDelivery.Data
 
         public static bool IsOfferInProfress
         {
-            set;get;
+            set; get;
         }
 
         public static string SelectedFoodGrp
         {
-            set;get;
+            set; get;
         }
     }
 }

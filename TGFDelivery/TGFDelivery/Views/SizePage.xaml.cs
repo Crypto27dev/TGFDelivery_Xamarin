@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TGFDelivery.CustomViewCells;
 using TGFDelivery.Data;
@@ -45,9 +43,10 @@ namespace TGFDelivery.Views
             ViewCell vc = (ViewCell)sender;
             var selectedSize = (SizeViewCellModel)vc.BindingContext;
 
-            await Task.Run( () => {
+            await Task.Run(() =>
+            {
                 DataManager.SelectSize(selectedSize.Size);
-            }); 
+            });
             await App._NavigationPage.PopAsync();
             App.Stop(this);
         }

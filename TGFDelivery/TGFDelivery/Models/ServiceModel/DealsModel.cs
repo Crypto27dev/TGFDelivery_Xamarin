@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using WinPizzaData;
 
 namespace TGFDelivery.Models.ServiceModel
 {
-    public class DealsModel 
+    public class DealsModel
     {
         public List<WPMealDeal> Products { get; set; }
 

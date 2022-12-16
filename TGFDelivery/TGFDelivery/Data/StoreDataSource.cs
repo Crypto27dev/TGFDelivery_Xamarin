@@ -1,16 +1,13 @@
-﻿using System;
+﻿using Acr.UserDialogs;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Threading.Tasks;
+using TGFDelivery.Models.ServiceModel;
+using TGFDelivery.Services;
 using WinPizzaData;
 using WPUtility;
-using TGFDelivery.Services;
-using TGFDelivery.Models;
-using TGFDelivery.Models.ServiceModel;
-using System.Collections.ObjectModel;
-using Acr.UserDialogs;
-using TGFDelivery.Helpers;
 
 namespace TGFDelivery.Data
 {
@@ -25,12 +22,13 @@ namespace TGFDelivery.Data
         public StoreData(Store DeStore)
         {
             _Store = DeStore;
-            DispayableGrp = new ObservableCollection<Group>(DeStore.DispayableGrp);          
-            DeStore.DeCats.ForEach(p => {
+            DispayableGrp = new ObservableCollection<Group>(DeStore.DispayableGrp);
+            DeStore.DeCats.ForEach(p =>
+            {
                 var DCat = p;
                 DeCats.Add(DCat);
                 if (DCat.CatType == WinPizzaEnums.ItemType.TOPPING)
-                    ToppingGrp = new ObservableCollection<Group>(DCat.DeGroup);               
+                    ToppingGrp = new ObservableCollection<Group>(DCat.DeGroup);
             });
         }
 
@@ -154,7 +152,7 @@ namespace TGFDelivery.Data
             }
         }
 
- 
+
         public WPCustomerMessages DeCustomerMsg
         {
             get { return _Store.CustomerMsgs; }
@@ -229,7 +227,7 @@ namespace TGFDelivery.Data
             }
         }
     }
-    public  sealed class   StoreDataSource
+    public sealed class StoreDataSource
     {
         public static StoreDataSource _StoreDataSource = new StoreDataSource();
 
@@ -245,7 +243,7 @@ namespace TGFDelivery.Data
         #endregion
 
         #region StoreSetting
-        public  static async Task<bool> GetStoreProfile(string DeStoreID)
+        public static async Task<bool> GetStoreProfile(string DeStoreID)
         {
             if (DeStore == null || DeStoreProfile == null || DeSeversUrl == null)
             {
@@ -254,7 +252,7 @@ namespace TGFDelivery.Data
                 if (DeStoreProfile == null)
                 {
                     return false;
-                }      
+                }
             }
             return true;
         }
@@ -264,7 +262,7 @@ namespace TGFDelivery.Data
             IsStoreClosed = await CoreServices.GetStoreClosed(DeStoreProfile.DeDataSourceName, DeSeversUrl, DeStore.Store);
         }
 
-        public static async Task  InitStoreSetting(string DeStoreID)
+        public static async Task InitStoreSetting(string DeStoreID)
         {
             bool IsGetStoreProfile = await StoreDataSource.GetStoreProfile(DeStoreID);
             if (!IsGetStoreProfile)
@@ -278,9 +276,9 @@ namespace TGFDelivery.Data
             if (!DeStore.Store.IsValid)
             {
                 await UserDialogs.Instance.AlertAsync("Server Error", "LoadMenu", "Cancel");
-                return ;
+                return;
             }
-            BasketDataSource.BasketData = new Orderdata();            
+            BasketDataSource.BasketData = new Orderdata();
         }
         #endregion
     }

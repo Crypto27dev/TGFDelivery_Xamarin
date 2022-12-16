@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TGFDelivery.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,9 +19,9 @@ namespace TGFDelivery.Views
         public List<string> getdata()
         {
             List<string> temps = new List<string>();
-            for(var i = 0; i < 2; i++)
+            for (var i = 0; i < 2; i++)
             {
-                var aa = "pizza0" + (i + 1).ToString()+".png";
+                var aa = "pizza0" + (i + 1).ToString() + ".png";
                 temps.Add(aa);
             }
             return temps;

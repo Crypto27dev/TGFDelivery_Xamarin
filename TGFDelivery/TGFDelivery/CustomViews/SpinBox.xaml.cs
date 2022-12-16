@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace TGFDelivery.CustomViews
 {
@@ -20,19 +15,20 @@ namespace TGFDelivery.CustomViews
             BindableProperty.Create("MinimumValue", typeof(int), typeof(SpinBox), defaultValue: 0);
 
         public static readonly BindableProperty MaximumValueProperty =
-            BindableProperty.Create("MaximumValue", typeof(int), typeof(SpinBox), defaultValue: 10);        
+            BindableProperty.Create("MaximumValue", typeof(int), typeof(SpinBox), defaultValue: 10);
 
         public SpinBox()
         {
             InitializeComponent();
         }
-    
+
         public int AmountValue
         {
             get { return (int)GetValue(AmountValueProperty); }
-            set { 
+            set
+            {
                 _OrderValue.Text = Convert.ToString(value);
-                SetValue(AmountValueProperty, value); 
+                SetValue(AmountValueProperty, value);
             }
         }
 

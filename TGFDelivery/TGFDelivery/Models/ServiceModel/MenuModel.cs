@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WinPizzaData;
+﻿using System.Collections.Generic;
 using System.Globalization;
+using WinPizzaData;
 
 namespace TGFDelivery.Models.ServiceModel
 {
-    public class MenuModel 
+    public class MenuModel
     {
         public string ShowGroup { get; set; }
         public string SelectedCategoryID { get; set; }

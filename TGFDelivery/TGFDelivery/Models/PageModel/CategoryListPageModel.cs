@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
+using System.Linq;
 using TGFDelivery.Data;
 using TGFDelivery.Helpers;
-using TGFDelivery.Models.ServiceModel;
-using WinPizzaData;
-using Xamarin.Forms;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace TGFDelivery.Models.PageModel
 {
@@ -42,7 +35,7 @@ namespace TGFDelivery.Models.PageModel
         public CategoryModel MyCategorySelected
         {
             get => _myCategorySelected;
-            set 
+            set
             {
                 _myCategorySelected = value;
                 OnPropertyChanged();
@@ -80,10 +73,12 @@ namespace TGFDelivery.Models.PageModel
             CategoryList = new ObservableRangeCollection<CategoryModel>();
             CategoryList.Clear();
             var hh = StoreDataSource.DeStore.DeCats.Where(p => p.DisplyAble);
-            hh.All(p => {
+            hh.All(p =>
+            {
                 CategoryList.Add(new CategoryModel(p));
-                
-                     return true;});
+
+                return true;
+            });
             //= new ObservableRangeCollection<CategoryModel>();
             // CategoryList.AddRange(DataManager.MenuModel.CategoryList);
             foreach (var cat in CategoryList)
@@ -91,7 +86,7 @@ namespace TGFDelivery.Models.PageModel
                 if (!cat.MYCat.ImgUrl.Contains("http"))
                     cat.MYCat.ImgUrl = StoreDataSource.DeStoreProfile.DeStoreLinks.Photo + cat.MYCat.ImgUrl;
             }
-          //  OnCategoryClickedCommand = new Command(() => OnLoadGroupClicked());
+            //  OnCategoryClickedCommand = new Command(() => OnLoadGroupClicked());
         }
 
         /*public  void OnLoadGroupClicked()

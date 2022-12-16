@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Windows.Input;
 using TGFDelivery.Data;
 using TGFDelivery.Views;
@@ -109,7 +106,7 @@ namespace TGFDelivery.Models.PageModel
             set { _Products = value; OnPropertyChanged("Products"); }
         }
         public ICommand Product_Clicked { private set; get; }
-        
+
         public CollectionData()
         {
             Product_Clicked = new Command<string>(com_Product_Clicked);

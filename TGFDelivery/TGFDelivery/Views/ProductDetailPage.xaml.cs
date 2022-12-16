@@ -1,17 +1,9 @@
-﻿using Acr.UserDialogs;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using TGFDelivery.Data;
-using TGFDelivery.Helpers;
 using TGFDelivery.Models.ServiceModel;
-using TGFDelivery.Models.ViewCellModel;
 using TGFDelivery.Resources;
-using WinPizzaData;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -51,7 +43,7 @@ namespace TGFDelivery.Views
             {
                 xName_Layout.Children.Clear();
 
-                CustomizeModel DeModel = DataManager.Customize(this.CatID , this.GroupID, this.ProductID, this.OfferIndex, this.OrderLindID);
+                CustomizeModel DeModel = DataManager.Customize(this.CatID, this.GroupID, this.ProductID, this.OfferIndex, this.OrderLindID);
                 if (DeModel.Product.isHalfandHalf)
                 {
                     if (0 < DeModel.TheOrderLine.Sides.Count && DeModel.TheOrderLine.Sides.Count < DeModel.SideNumber)
@@ -98,17 +90,18 @@ namespace TGFDelivery.Views
             {
                 App.Stop(this);
             }
-            
+
         }
         private void Draw(CustomizeModel DeModel, CustomizeData index)
         {
-            StackLayout stackLayout = new StackLayout() { BackgroundColor = Color.FromHex("#2d2d2d"), HeightRequest = 50};
-            
+            StackLayout stackLayout = new StackLayout() { BackgroundColor = Color.FromHex("#2d2d2d"), HeightRequest = 50 };
+
             if (index == CustomizeData.Size)
             {
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer()
                 {
-                    Command = new Command(() => {
+                    Command = new Command(() =>
+                    {
                         Size_Tapped();
                     })
                 };
@@ -126,7 +119,7 @@ namespace TGFDelivery.Views
                     VerticalTextAlignment = TextAlignment.Center
                 };
                 grid.Children.Add(title, 0, 0);
-                
+
                 foreach (WinPizzaData.Option size in DeModel.GroupedLinq[DeModel.ListGroupKey[0]])
                 {
                     if (DeModel.TheOrderLine.DeMixedOption.OptionList.FirstOrDefault(o => o.Value.Name == size.Name).Value != null)
@@ -147,7 +140,8 @@ namespace TGFDelivery.Views
             {
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer()
                 {
-                    Command = new Command(() => {
+                    Command = new Command(() =>
+                    {
                         Crust_Tapped();
                     })
                 };
@@ -185,7 +179,8 @@ namespace TGFDelivery.Views
             {
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer()
                 {
-                    Command = new Command(() => {
+                    Command = new Command(() =>
+                    {
                         Toppings_Tapped();
                     })
                 };
@@ -298,7 +293,7 @@ namespace TGFDelivery.Views
             {
                 //App.Stop(this);
             }
-            
+
         }
         private void Crust_Tapped()
         {
@@ -316,7 +311,7 @@ namespace TGFDelivery.Views
             {
                 //App.Stop(this);
             }
-            
+
         }
         private async void Toppings_Tapped()
         {
@@ -342,7 +337,7 @@ namespace TGFDelivery.Views
             {
                 await App._NavigationPage.PushAsync(new SideSelectPage2Toppings(10) { Title = TitleName4Topping, BackgroundColor = Color.Black });
             }
-            
+
             App.Stop(this);
         }
         private SideTabbedPage2Toppings proc_Toppings_Tapped(string TitleName4Topping)
@@ -405,7 +400,7 @@ namespace TGFDelivery.Views
 
                 throw;
             }
-            
+
         }
         private void Back_Tapped(object sender, EventArgs e)
         {
@@ -416,7 +411,7 @@ namespace TGFDelivery.Views
         {
             App.Loading(this);
             var result = await Task.Run(() => proc_Add2Order());
-            
+
             if (result == "unpicked")
             {
                 await DisplayAlert("Warnning", "Please select pizza for Half and Half", "Cancel");
@@ -439,7 +434,7 @@ namespace TGFDelivery.Views
             await App._NavigationPage.PopAsync();
             App.Stop(this);
         }
-        private string proc_Add2Order() 
+        private string proc_Add2Order()
         {
             try
             {
@@ -448,7 +443,7 @@ namespace TGFDelivery.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw;
             }
             finally
@@ -459,7 +454,7 @@ namespace TGFDelivery.Views
 
         private void Plus_Clicked(object sender, EventArgs e)
         {
-            if((Int32.Parse(xName_Qty.Text) + 1) == 11)
+            if ((Int32.Parse(xName_Qty.Text) + 1) == 11)
             {
                 return;
             }

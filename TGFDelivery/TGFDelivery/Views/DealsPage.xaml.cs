@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TGFDelivery.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,8 +11,8 @@ namespace TGFDelivery.Views
         test _test = new test();
         public DealsPage()
         {
-            
-            InitializeComponent();  
+
+            InitializeComponent();
             _test.tests = getdata();
             BindingContext = _test;
         }

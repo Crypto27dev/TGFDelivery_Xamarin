@@ -1,8 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TGFDelivery.CustomViewCells;
 using TGFDelivery.Data;
@@ -66,7 +64,7 @@ namespace TGFDelivery.Views
                             productViewCellModel.ProductID = productItem.ID;
                             productViewCellModel.BtnIsVisible = false;
                             productViewCellModel.Price = productItem.DeGroupedPrices.DePrices.FirstOrDefault().DeMixOption.Name.Replace(",", " ") + productItem.DeGroupedPrices.DePrices.FirstOrDefault().Amount.ToString();
-                            ProductViewCell productViewCell = new ProductViewCell() { BindingContext = productViewCellModel }; 
+                            ProductViewCell productViewCell = new ProductViewCell() { BindingContext = productViewCellModel };
                             productViewCell.Tapped += ProductViewCell_Tapped;
                             xName_List.Add(productViewCell);
                         }
@@ -146,8 +144,8 @@ namespace TGFDelivery.Views
             finally
             {
                 App.Stop(this);
-            }         
-            
+            }
+
         }
 
         private async void ProductViewCell_Tapped(object sender, EventArgs e)
@@ -228,7 +226,7 @@ namespace TGFDelivery.Views
 
         protected override void OnDisappearing()
         {
-            
-        }   
+
+        }
     }
 }

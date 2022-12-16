@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 using TGFDelivery.Models.ServiceModel;
 using WinPizzaData;
-using WPUtility;
-using System.Threading.Tasks;
 
 namespace TGFDelivery.Data
 {
@@ -26,7 +22,7 @@ namespace TGFDelivery.Data
                 return DeAddress.ToString();
             return string.Empty;
         }
-    
+
         private Address _DeAddress;
         public Address DeAddress
         {
@@ -85,7 +81,7 @@ namespace TGFDelivery.Data
             get { return DeAddress.DePostCode.PostTown; }
             set { if (DeAddress.DePostCode.PostTown != value) { DeAddress.DePostCode.PostTown = value; OnPropertyChanged(); } }
         }
-       
+
     }
     public class PeopleData : BindableBase
     {

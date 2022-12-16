@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TGFDelivery.Data;
 using TGFDelivery.Models.PageModel;
@@ -24,8 +22,8 @@ namespace TGFDelivery.Views
             InitializeComponent();
             _Id = Id;
             _OrderLineId = OrderLineID;
-            
-            
+
+
             //Init();
         }
         protected override void OnAppearing()
@@ -39,10 +37,10 @@ namespace TGFDelivery.Views
             try
             {
                 DealModel deModel = new DealModel();
-                await Task.Run( () => 
+                await Task.Run(() =>
                 {
                     deModel = DataManager.Deal(_Id, _OrderLineId);
-                    
+
                 });
                 _Model.PageTitleName = "Deal";
                 _Model.DealName = deModel.OfferOrderLine.Name;
@@ -142,11 +140,11 @@ namespace TGFDelivery.Views
             {
                 App.Stop(this);
             }
-            
+
         }
         protected override void OnDisappearing()
         {
-            
+
         }
     }
 }

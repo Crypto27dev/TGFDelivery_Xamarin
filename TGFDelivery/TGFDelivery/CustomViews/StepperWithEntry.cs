@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace TGFDelivery.CustomViews
@@ -45,15 +43,16 @@ namespace TGFDelivery.CustomViews
         }
         public StepperWithEntry()
         {
-            PlusBtn = new Button { WidthRequest = 20, HeightRequest = 20, ImageSource="plus_btn.png", HorizontalOptions = LayoutOptions.Center };
+            PlusBtn = new Button { WidthRequest = 20, HeightRequest = 20, ImageSource = "plus_btn.png", HorizontalOptions = LayoutOptions.Center };
             MinusBtn = new Button { WidthRequest = 20, HeightRequest = 20, ImageSource = "minus_btn.png", HorizontalOptions = LayoutOptions.Center };
-            TextLabel = new Label { 
-                Text = "0", 
-                WidthRequest = 20, 
-                FontSize = 22, 
+            TextLabel = new Label
+            {
+                Text = "0",
+                WidthRequest = 20,
+                FontSize = 22,
                 TextColor = Color.FromHex("#005980"),
-                VerticalTextAlignment = TextAlignment.Center, 
-                HorizontalTextAlignment = TextAlignment.Center 
+                VerticalTextAlignment = TextAlignment.Center,
+                HorizontalTextAlignment = TextAlignment.Center
             };
             switch (Device.RuntimePlatform)
             {

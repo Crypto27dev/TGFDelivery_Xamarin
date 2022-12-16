@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using TGFDelivery.Models;
 using TGFDelivery.Models.PageModel;
-using TGFDelivery.Views.Menu;
-using WinPizzaData;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

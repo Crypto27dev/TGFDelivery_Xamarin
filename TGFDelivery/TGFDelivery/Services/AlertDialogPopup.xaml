@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rx:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+           xmlns:rx="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           x:Class="TGFDelivery.Services.AlertDialogPopup">
+
+    <Frame x:Name="FrContent"
+           BackgroundColor="#005980"
+           CornerRadius="10"
+           Margin="5"
+           HorizontalOptions="FillAndExpand" VerticalOptions="End" 
+           Opacity="0">
+        <StackLayout x:Name="AlertContent" Orientation="Vertical" VerticalOptions="FillAndExpand" >
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                <Label x:Name="LbTitle" FontSize="18" Text="Additional toppings charged at ₤1.75" TextColor="White"></Label>
+                <Label x:Name="LbMessage" IsVisible="False" FontSize="Body" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button 
+                    x:Name="BtCancel" 
+                    Text="CANCEL" 
+                    CornerRadius="30" 
+                    TextColor="White" 
+                    FontSize="22"
+                    BackgroundColor="Transparent" 
+                    BorderWidth="1" 
+                    BorderColor="White" 
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Clicked="BtCancel_Clicked">
+                </Button>
+                <Button 
+                    x:Name="BtOk"
+                    Text="SAVE"
+                    CornerRadius="30"
+                    TextColor="White"
+                    FontSize="22"
+                    BackgroundColor="#3b9831"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"
+                    Clicked="BtOk_Clicked">
+                </Button>
+            </StackLayout>
+            
+        </StackLayout>
+    </Frame>
+</rx:PopupPage>

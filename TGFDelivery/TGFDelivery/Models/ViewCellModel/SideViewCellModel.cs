@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TGFDelivery.Models.ViewCellModel
+﻿namespace TGFDelivery.Models.ViewCellModel
 {
     public class SideViewCellModel
     {

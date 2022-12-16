@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using WinPizzaData;
 
 namespace TGFDelivery.Models.ServiceModel
@@ -21,6 +18,6 @@ namespace TGFDelivery.Models.ServiceModel
             return Price.ToString((CultureInfo)CultureInfo.CurrentCulture) + CultureInfo.CurrentUICulture.NumberFormat.CurrencySymbol;
         }
 
-       
+
     }
 }

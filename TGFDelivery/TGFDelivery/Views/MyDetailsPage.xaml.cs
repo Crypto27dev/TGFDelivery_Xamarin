@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TGFDelivery.Data;
 using TGFDelivery.Models.PageModel;
 using TGFDelivery.Models.ServiceModel;
@@ -54,7 +50,7 @@ namespace TGFDelivery.Views
             {
                 App.Stop(this);
             }
-            
+
         }
 
     }

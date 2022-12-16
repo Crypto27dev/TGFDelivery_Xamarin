@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace TGFDelivery.CustomViews
 {
@@ -14,7 +11,7 @@ namespace TGFDelivery.CustomViews
             {
                 return (Color)GetValue(SeparatorColorProperty);
             }
-            set 
+            set
             {
                 SetValue(SeparatorColorProperty, value);
             }

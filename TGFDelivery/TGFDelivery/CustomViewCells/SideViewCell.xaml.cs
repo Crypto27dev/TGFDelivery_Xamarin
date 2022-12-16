@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TGFDelivery.Data;
 using TGFDelivery.Helpers.Data;
 using TGFDelivery.Models.ViewCellModel;
@@ -29,7 +25,7 @@ namespace TGFDelivery.CustomViewCells
                 xName_Portion.Text = Model.Portion.ToString();
             }
         }
-        
+
         private void onClose(object sender, EventArgs e)
         {
             ResultSelectTopping selectedTopping = DataManager.SelectTopping(_Model.Topping.ID, false);
@@ -58,7 +54,7 @@ namespace TGFDelivery.CustomViewCells
                 {
                     xName_Portion.Text = selectedTopping.Portion;
                 }
-                
+
             }
         }
 

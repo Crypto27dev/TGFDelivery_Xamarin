@@ -1,5 +1,3 @@
-using System;
-
 namespace TGFDelivery.Models.ServiceModel
 {
     public class ErrorViewModel

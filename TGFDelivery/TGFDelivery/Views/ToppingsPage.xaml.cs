@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.ObjectModel;
+using TGFDelivery.Models;
+using TGFDelivery.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using TGFDelivery.Models;
-using WinPizzaData;
 
 namespace TGFDelivery.Views
 {
@@ -21,6 +14,8 @@ namespace TGFDelivery.Views
                typeof(ObservableCollection<ToppingsModel>),     // the bindable property type
                typeof(ToppingsPage),   // the parent object type
                null, propertyChanged: OnEventNameChanged);
+
+        private readonly IAlertDialogService alertDialogService;
 
         static void OnEventNameChanged(BindableObject bindable, object oldValue, object newValue)
         {
@@ -38,6 +33,7 @@ namespace TGFDelivery.Views
 
         public ToppingsPage()
         {
+            alertDialogService = DependencyService.Get<IAlertDialogService>();
             InitializeComponent();
 
             System.Collections.ObjectModel.ObservableCollection<ToppingsModel> temps = new System.Collections.ObjectModel.ObservableCollection<ToppingsModel>();
@@ -61,7 +57,7 @@ namespace TGFDelivery.Views
             BindingContext = this;
         }
 
-        private void ItemSelectionEvent(object sender, SelectedItemChangedEventArgs e)
+        private async void ItemSelectionEvent(object sender, SelectedItemChangedEventArgs e)
         {
             var currentItem = e.SelectedItem as ToppingsModel;
             if (PreviousItem != null)
@@ -72,6 +68,7 @@ namespace TGFDelivery.Views
             {
                 currentItem.IsSelected = true;
                 PreviousItem = currentItem;
+                bool result = await alertDialogService.ShowDialogConfirmationAsync("Additional toppings charged at ₤1.75", null, "CANCEL", "SAVE");
             }
         }
     }

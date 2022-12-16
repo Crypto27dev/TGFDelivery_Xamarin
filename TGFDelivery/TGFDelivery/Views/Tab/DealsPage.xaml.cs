@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TGFDelivery.CustomViewCells;
 using TGFDelivery.Data;
 using TGFDelivery.Models.ServiceModel;
@@ -21,7 +17,7 @@ namespace TGFDelivery.Views.Tab
         public DealsPage()
         {
             InitializeComponent();
-            
+
             //Subscribe();
         }
         protected override void OnAppearing()
@@ -67,7 +63,7 @@ namespace TGFDelivery.Views.Tab
             {
                 App.Stop(this);
             }
-            
+
         }
 
         private void onPrice(object sender, EventArgs e)

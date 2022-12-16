@@ -1,20 +1,14 @@
-﻿using Acr.UserDialogs;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TGFDelivery.CustomViewCells;
-using TGFDelivery.CustomViews;
 using TGFDelivery.Data;
-using TGFDelivery.Helpers;
 using TGFDelivery.Models.ServiceModel;
 using TGFDelivery.Models.ViewCellModel;
 using WinPizzaData;
 using Xamarin.Forms;
-using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace TGFDelivery.Views.Tab
@@ -52,7 +46,8 @@ namespace TGFDelivery.Views.Tab
         {
             if (_Category == null) return;
 
-            Device.BeginInvokeOnMainThread(async () => {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
                 App.Loading(this);
                 try
                 {
@@ -75,7 +70,7 @@ namespace TGFDelivery.Views.Tab
                                 Text = deGroup.Name,
                                 BackgroundColor = Color.Transparent,
                                 TextColor = Color.White,
-                                Padding = new Thickness(20, 0), 
+                                Padding = new Thickness(20, 0),
                                 FontFamily = Device.RuntimePlatform == Device.iOS ? "Oswald" : Device.RuntimePlatform == Device.Android ? "Oswald[wght].ttf#Oswald[wght]" : "Assets/Oswald[wght].ttf",
                                 Command = new Command(() =>
                                 {
@@ -140,12 +135,12 @@ namespace TGFDelivery.Views.Tab
                 {
                     DataManager.SelectedProduct.Add(CategoryId, GroupName);
                 }
-                
+
             }
             catch (Exception ex)
             {
 
-                
+
             }
             finally
             {
@@ -155,7 +150,7 @@ namespace TGFDelivery.Views.Tab
         private void Draw(MenuModel deModel)
         {
             //Banner
-            if(deModel.Product4Sale != null && !deModel.IsStoreClosed)
+            if (deModel.Product4Sale != null && !deModel.IsStoreClosed)
             {
                 ProductViewCellModel productViewCellModel = new ProductViewCellModel();
                 productViewCellModel.Name = "Banner";
@@ -280,7 +275,7 @@ namespace TGFDelivery.Views.Tab
 
         private void ProductViewCellModel_AddBtn_Clicked(object sender, string e)
         {
-            
+
         }
 
         public void SetCreateButton(ProductViewCellModel productViewCellModel)

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using WinPizzaData;
 
 namespace TGFDelivery.Models.ServiceModel
 {
-    public class DealModel 
+    public class DealModel
     {
         // OfferOrderLine
         public OfferOrderLine OfferOrderLine { get; set; }

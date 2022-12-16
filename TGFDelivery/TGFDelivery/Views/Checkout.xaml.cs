@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace TGFDelivery.Views
@@ -15,10 +9,10 @@ namespace TGFDelivery.Views
         public Checkout()
         {
             InitializeComponent();
-/*            MainPicker.Items.Add("Mohamed");
-            MainPicker.Items.Add("Ahmed");
-            MainPicker.Items.Add("Ali");
-            MainPicker.Items.Add("Karim");*/
+            /*            MainPicker.Items.Add("Mohamed");
+                        MainPicker.Items.Add("Ahmed");
+                        MainPicker.Items.Add("Ali");
+                        MainPicker.Items.Add("Karim");*/
         }
 
 

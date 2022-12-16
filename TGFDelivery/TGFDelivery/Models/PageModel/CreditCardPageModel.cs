@@ -1,10 +1,7 @@
 ﻿using Acr.UserDialogs;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TGFDelivery.Interfaces;
@@ -14,7 +11,7 @@ namespace TGFDelivery.Models.PageModel
 {
     public class CreditCardPageModel : ViewModelBase
     {
-        
+
         public ICommand PayCommand { get; set; }
         private string _CardNumber { get; set; }
         public string CardNumber
@@ -85,7 +82,7 @@ namespace TGFDelivery.Models.PageModel
 
         public ICommand Pay_Clicked { get; private set; }
         IPayService _payService;
-         
+
         string paymentClientToken = "<Payment token returned by the API HERE>";
 
         public CreditCardPageModel()

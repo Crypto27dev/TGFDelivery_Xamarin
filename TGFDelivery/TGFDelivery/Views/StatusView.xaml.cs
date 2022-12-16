@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TGFDelivery.Data;
+﻿using TGFDelivery.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -36,11 +31,13 @@ namespace TGFDelivery.Views
         #region "Message Center"
         public void Initialize()
         {
-            MessagingCenter.Subscribe<object>(this, AppSettings.STATUS_LOADING, (sender) => {
+            MessagingCenter.Subscribe<object>(this, AppSettings.STATUS_LOADING, (sender) =>
+            {
                 Show();
             });
 
-            MessagingCenter.Subscribe<object>(this, AppSettings.STATUS_DONE, (sender) => {
+            MessagingCenter.Subscribe<object>(this, AppSettings.STATUS_DONE, (sender) =>
+            {
                 Hide();
             });
         }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using TGFDelivery.Views;
 using Xamarin.Forms;
 

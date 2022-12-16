@@ -23,8 +23,8 @@ namespace TGFDelivery.Services
             var Msg = await LoadStoreHelperFunctoin.DoWebJsonServices(EndPoint);
             if (Msg.DeMsgType == WinPizzaEnums.MessageType.ACTIONSUCCESS)
             {
-                
-                
+
+
             }
             return "";
         }
@@ -75,13 +75,13 @@ namespace TGFDelivery.Services
             if (Msg.DeMsgType == WinPizzaEnums.MessageType.ACTIONSUCCESS)
             {
                 var dd = (string)JsonConvert.DeserializeObject((string)Msg.WinPizzaObject, typeof(string));
-                StoreData = Store.ConvertToStore(XElement.Parse(dd));   
+                StoreData = Store.ConvertToStore(XElement.Parse(dd));
             }
             //string contents = File.ReadAllText(@"D:\Process\TGFPizza\Complete\menu.txt");
             //StoreData = Store.ConvertToStore(XElement.Parse((string)JsonConvert.DeserializeObject((string)contents, typeof(string))));
             return StoreData;
         }
-        
+
         /// <summary>
         /// Get webservices endpoint from storeID
         /// </summary>
@@ -102,7 +102,7 @@ namespace TGFDelivery.Services
 
             string strMenuSRV = DeServersUrl.MenuSRV;
             string LoadMenuUrl = string.Format(@"/PostCodeToStreets?DataSource={0}&PostCode={1}&CountryCode={2}", DataSourceName, PostCode, "");
-            string EndPoint = strMenuSRV + LoadMenuUrl;;
+            string EndPoint = strMenuSRV + LoadMenuUrl; ;
             var Msg = await LoadStoreHelperFunctoin.DoWebJsonServices(EndPoint);
             if (Msg.DeMsgType == WinPizzaEnums.MessageType.ACTIONSUCCESS)
                 return (string)Msg.WinPizzaObject;
@@ -116,7 +116,7 @@ namespace TGFDelivery.Services
         /// <returns></returns>
         public async static Task<string> FindAddress(String PostCode)
         {
-             var Msg = await LoadStoreHelperFunctoin.DoWebJsonServices(AppSettings.BaseUserServiceAddress + AppSettings.Method_FindAddress + PostCode);
+            var Msg = await LoadStoreHelperFunctoin.DoWebJsonServices(AppSettings.BaseUserServiceAddress + AppSettings.Method_FindAddress + PostCode);
             if (Msg.DeMsgType == WinPizzaEnums.MessageType.ACTIONSUCCESS)
                 return (string)Msg.WinPizzaObject;
             return null;
@@ -136,7 +136,7 @@ namespace TGFDelivery.Services
                 string strResponse = await FindAddressDe(StoreProfile.DeDataSourceName, PostCode, DeServersUrl);
                 strResponse = strResponse.Replace("\"", "");
                 string[] AddressList = strResponse.Split(';');
-                for(int i = 0; i < AddressList.Length - 1; i++)
+                for (int i = 0; i < AddressList.Length - 1; i++)
                 {
                     Address DeAddress = new Address();
                     string[] data = AddressList[i].Split('@');
@@ -164,7 +164,7 @@ namespace TGFDelivery.Services
                 string pattern = @"\*(?<val>[^\^]*)";
                 MatchCollection data_match = Regex.Matches(strResponse, pattern);
 
-               
+
                 foreach (Match match in data_match)
                 {
                     Address DeAddress = new Address();
@@ -281,13 +281,13 @@ namespace TGFDelivery.Services
             DeBasket.DeOrderHeader.DePeople.DeAddress.DeDuration = new Duration();
             DeBasket.DeOrderHeader.DePeople.DeAddress.DeDuration.text = "";
             DeBasket.DeOrderHeader.DePeople.DeAddress.DeDuration.value = 0;
-            Msg.WinPizzaObject =  Newtonsoft.Json.JsonConvert.SerializeObject(DeBasket);
+            Msg.WinPizzaObject = Newtonsoft.Json.JsonConvert.SerializeObject(DeBasket);
             // okay?storeid?yesok country code?DE?yes , but do not want to hard code it , one sec
             // okay?ok
 
             Msg.DeMsgBody = DeDataSourceName + ";" + CountryCode;
             Msg.DeMsgType = WinPizzaEnums.MessageType.NEWORDER;
-            string EndPoint = DeServersUrl.MenuSRV  + AppSettings.HostURLSubmitOrder;
+            string EndPoint = DeServersUrl.MenuSRV + AppSettings.HostURLSubmitOrder;
             return await LoadStoreHelperFunctoin.PostWebJson(EndPoint, Msg);
         }
 
@@ -300,7 +300,7 @@ namespace TGFDelivery.Services
             WPMessage resultMessage = await LoadStoreHelperFunctoin.PostWebJson(EndPoint, Msg);
             if (resultMessage.DeMsgType == WinPizzaEnums.MessageType.ACTIONSUCCESS)
             {
-                return resultMessage.DeMsgBody == WinPizzaEnums.Varification.Varified.ToString() ? false : false; 
+                return resultMessage.DeMsgBody == WinPizzaEnums.Varification.Varified.ToString() ? false : false;
             }
             return false;
         }
@@ -309,7 +309,7 @@ namespace TGFDelivery.Services
         {
             WPMessage Msg = new WPMessage();
             Msg.DeMsgBody = DeMessage;
-            Msg.WinPizzaObject = DePhone+";";
+            Msg.WinPizzaObject = DePhone + ";";
             PhoneN.DataSourceName = Fs.DeDataSourceName;
             PhoneN.StoreID = Fs.StoreID;
             Msg.DataObject = JsonConvert.SerializeObject(PhoneN);
@@ -330,7 +330,7 @@ namespace TGFDelivery.Services
         {
             WPMessage Msg = new WPMessage();
             Msg.DeMsgBody = DeVerifyCode;
-            return await LoadStoreHelperFunctoin.PostWebJson( DeServersUrl + AppSettings.Method_VerifyPin, Msg);
+            return await LoadStoreHelperFunctoin.PostWebJson(DeServersUrl + AppSettings.Method_VerifyPin, Msg);
         }
 
         public static WinPizzaEnums.OrderStatus SendMail(string XmlOrd, string SMTPHost, string EmailFrom, string EmailTo, string Subject)

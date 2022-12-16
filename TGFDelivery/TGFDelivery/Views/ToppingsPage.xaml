@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout Grid.Row="0" Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="0,10,0,0" BackgroundColor="#E5E5E5">
             <StackLayout Padding="10,3,10,3" Margin="0,0,0,0">
-                <ListView x:Name="ToppingList"  ItemsSource="{Binding Products}" RowHeight="110" SelectionMode="Single">
+                <ListView x:Name="ToppingList"  ItemsSource="{Binding Products}" RowHeight="110" SelectionMode="Single" ItemSelected="ItemSelectionEvent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -42,32 +42,13 @@
                                             <StackLayout VerticalOptions="Center">
                                                 <Ctrl:SpinBox
                                                     AmountValue="{Binding Order}"
+                                                    IsVisible="{Binding IsSelected}"
                                                     HorizontalOptions="Center"
                                                     VerticalOptions="Center"
                                                     WidthRequest="110"
                                                     MinimumValue="0"
                                                     MaximumValue="10"
-                                                >
-                                                    <Ctrl:SpinBox.Style>
-                                                        <Style TargetType="Ctrl:SpinBox">
-                                                            <Setter Property="IsVisible" Value="True" />
-                                                            <Style.Triggers>
-                                                               <DataTrigger TargetType="Ctrl:SpinBox"
-                                                                             Binding="{Binding Source={x:Reference ToppingListItem}, Path=SelectedItem, Mode=TwoWay}"
-                                                                             Value="{x:Null}"
-                                                                >
-                                                                    <Setter Property="IsVisible" Value="False" />
-                                                                </DataTrigger> 
-                                                                <!--     <DataTrigger TargetType="Ctrl:SpinBox"
-                                                                             Binding="{Binding Source={x:Reference cbSample}, Path=IsChecked}"
-                                                                             Value="True"
-                                                                >
-                                                                    <Setter Property="IsVisible" Value="True" />
-                                                                </DataTrigger> -->
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </Ctrl:SpinBox.Style>
-                                                </Ctrl:SpinBox>
+                                                />
                                                 <StackLayout HorizontalOptions="FillAndExpand" Padding="0,0,10,0">
                                                     <Label 
                                                         IsVisible="{Binding Visible}" 

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WinPizzaData;
-using WPUtility;
-using TGFDelivery.Helpers;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using TGFDelivery.Data;
+using WinPizzaData;
 namespace TGFDelivery.Models
 {
 
@@ -24,7 +19,7 @@ namespace TGFDelivery.Models
         }
     }
 
-    public class ProductsModel: FoodItem
+    public class ProductsModel : FoodItem
     {
         public ProductsModel()
         {
@@ -40,13 +35,13 @@ namespace TGFDelivery.Models
         public WPBaseProduct MyPro
         {
             get { return _MYPro; }
-            set { _MYPro = value;OnPropertyChanged(); }
-        }        
+            set { _MYPro = value; OnPropertyChanged(); }
+        }
     }
     public class ToppingsModel : FoodItem
     {
         int _calorie;
-        public int Calorie 
+        public int Calorie
         {
             get { return _calorie; }
             set { _calorie = value; OnPropertyChanged(); }
@@ -94,7 +89,7 @@ namespace TGFDelivery.Models
         }
     }
 
-    public class  GroupModel: FoodItem
+    public class GroupModel : FoodItem
     {
         public GroupModel()
         {
@@ -117,7 +112,7 @@ namespace TGFDelivery.Models
             get { return _MYGr; }
             set { _MYGr = value; OnPropertyChanged(); }
         }
-        ObservableCollection<ProductsModel> _MyPros= new ObservableCollection<ProductsModel>();
+        ObservableCollection<ProductsModel> _MyPros = new ObservableCollection<ProductsModel>();
         public ObservableCollection<ProductsModel> MyPros
         {
             get => _MyPros;
@@ -128,7 +123,7 @@ namespace TGFDelivery.Models
             }
         }
     }
-    public class CategoryModel: FoodItem
+    public class CategoryModel : FoodItem
     {
         public CategoryModel()
         {
@@ -162,6 +157,6 @@ namespace TGFDelivery.Models
                 OnPropertyChanged();
             }
         }
-      
+
     }
 }

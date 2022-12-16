@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel;
 
 namespace TGFDelivery.Models.ServiceModel
@@ -40,7 +37,7 @@ namespace TGFDelivery.Models.ServiceModel
         /// <param name="propertyName">Name of the property used to notify listeners.  This
         /// value is optional and can be provided automatically when invoked from compilers
         /// that support <see cref="CallerMemberNameAttribute"/>.</param>
-        protected void OnPropertyChanged( string propertyName = null)
+        protected void OnPropertyChanged(string propertyName = null)
         {
             var eventHandler = this.PropertyChanged;
             if (eventHandler != null)

@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using TGFDelivery.CustomViewCells;
 using TGFDelivery.Data;
-using TGFDelivery.Helpers;
 using TGFDelivery.Models.ServiceModel;
 using TGFDelivery.Models.ViewCellModel;
 using WinPizzaData;
 using Xamarin.Forms;
-using System.Collections.ObjectModel;
 
 namespace TGFDelivery.Models.PageModel
 {
-    
+
     public class ProductListPageModel : ViewModelBase
     {
         private ObservableCollection<ProductViewCellModel> _ProductList { get; set; }
@@ -64,7 +59,7 @@ namespace TGFDelivery.Models.PageModel
         public void LoadMyGroupProducts(Group group)
         {
             ProductList.Clear();
-            if(group.DeCat.DeGroup.Count == 1)
+            if (group.DeCat.DeGroup.Count == 1)
             {
                 group_name = group.Name;
             }
@@ -73,7 +68,7 @@ namespace TGFDelivery.Models.PageModel
                 category_name = group.DeCat.Name + "/";
                 group_name = group.Name;
             }
-            
+
             foreach (var product in group.DeProducts)
             {
                 if (!product.SoloInStore && product.IsActive && !product.CreateYourOwn && !product.isHalfandHalf && !product.IsFreeChoice && !product.PushSale)

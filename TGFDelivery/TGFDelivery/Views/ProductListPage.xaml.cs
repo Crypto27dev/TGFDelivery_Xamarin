@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
+using TGFDelivery.Data;
 using TGFDelivery.Models.PageModel;
 using TGFDelivery.Views.Menu;
+using WinPizzaData;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using TGFDelivery.Data;
-using WinPizzaData;
 
 namespace TGFDelivery.Views
 {
@@ -27,7 +23,7 @@ namespace TGFDelivery.Views
         {
             var mainPage = Application.Current.MainPage as MenuPage;
             await mainPage.Detail.Navigation.PopToRootAsync();
-            
+
         }
 
         private async void go_Group(object sender, EventArgs e)

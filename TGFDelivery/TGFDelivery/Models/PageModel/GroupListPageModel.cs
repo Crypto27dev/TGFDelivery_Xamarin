@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using TGFDelivery.Data;
-using TGFDelivery.Helpers;
-using TGFDelivery.Models.ServiceModel;
-using WinPizzaData;
-using Xamarin.Forms;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.Windows.Input;
+using TGFDelivery.Helpers;
+using Xamarin.Forms;
 
 namespace TGFDelivery.Models.PageModel
 {
@@ -57,24 +50,24 @@ namespace TGFDelivery.Models.PageModel
             GroupList = new ObservableRangeCollection<GroupModel>();
             OnGroupClickedCommand = new Command(() => OnLoadProductClicked());
 
- /*           MessagingCenter.Subscribe<CategoryGroupMsg>(this, "loadGroups", args =>
-            {
-                LoadMyCategoryGroups(args.Value);
-            });*/
+            /*           MessagingCenter.Subscribe<CategoryGroupMsg>(this, "loadGroups", args =>
+                       {
+                           LoadMyCategoryGroups(args.Value);
+                       });*/
 
         }
 
-      /*  public void LoadMyCategoryGroups(Category cat)
-        {
-            GroupList.Clear();
-            GroupList = new ObservableCollection<GroupModel>(cat.DeGroup);
-            category_name = cat.Name;
-            foreach (var group in GroupList)
-            {
-                if (!group.ImgUrl.Contains("http"))
-                    group.ImgUrl = StoreDataSource.DeStoreProfile.DeStoreLinks.Photo + group.ImgUrl;
-            }
-        }*/
+        /*  public void LoadMyCategoryGroups(Category cat)
+          {
+              GroupList.Clear();
+              GroupList = new ObservableCollection<GroupModel>(cat.DeGroup);
+              category_name = cat.Name;
+              foreach (var group in GroupList)
+              {
+                  if (!group.ImgUrl.Contains("http"))
+                      group.ImgUrl = StoreDataSource.DeStoreProfile.DeStoreLinks.Photo + group.ImgUrl;
+              }
+          }*/
 
         private void OnLoadProductClicked()
         {

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace TGFDelivery.Models
 {
-    public class test: ViewModelBase
+    public class test : ViewModelBase
     {
         string _id;
         public string id
@@ -13,8 +11,9 @@ namespace TGFDelivery.Models
             get { return _id; }
         }
         List<string> _tests { get; set; }
-        public List<string> tests {
-            set { _tests = value;OnPropertyChanged(); }
+        public List<string> tests
+        {
+            set { _tests = value; OnPropertyChanged(); }
             get { return _tests; }
         }
 

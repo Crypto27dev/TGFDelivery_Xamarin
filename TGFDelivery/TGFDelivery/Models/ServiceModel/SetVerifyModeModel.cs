@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using WinPizzaData;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TGFDelivery.Models.ServiceModel
 {
@@ -13,7 +8,7 @@ namespace TGFDelivery.Models.ServiceModel
         Email
     }
 
-    public class SetVerifyModeModel 
+    public class SetVerifyModeModel
     {
 
         // Application name

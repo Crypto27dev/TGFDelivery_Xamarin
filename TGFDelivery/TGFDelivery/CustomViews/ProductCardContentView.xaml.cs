@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using TGFDelivery.Models;
+using TGFDelivery.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using WinPizzaData;
-using TGFDelivery.Models;
-using TGFDelivery.Helpers;
-using System.Windows.Input;
-using TGFDelivery.Views;
 
 namespace TGFDelivery.CustomViews
 {

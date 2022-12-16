@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using TGFDelivery.CustomViewCells;
 using TGFDelivery.Data;
@@ -26,7 +22,7 @@ namespace TGFDelivery.Views
             _Products = products;
             _Index = Index;
             _IsCustomize = IsCustomize;
-            
+
         }
         protected override void OnAppearing()
         {
@@ -42,10 +38,10 @@ namespace TGFDelivery.Views
                 Select2DealViewCell select2DealViewCell = new Select2DealViewCell() { BindingContext = select2DealViewCellModel };
                 xName_List.Add(select2DealViewCell);
             }
-            
+
             App.Stop(this);
         }
-        
+
         protected override void OnDisappearing()
         {
             xName_List.Clear();
