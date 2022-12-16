@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout Grid.Row="0" Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="0,10,0,0" BackgroundColor="#E5E5E5">
             <StackLayout Padding="10,3,10,3" Margin="0,0,0,0">
-                <ListView x:Name="ToppingList"  ItemsSource="{Binding Products}" RowHeight="110" SelectionMode="Single" ItemSelected="ItemSelectionEvent">
+                <ListView x:Name="ToppingList"  ItemsSource="{Binding Products}" RowHeight="110" ItemSelected="ItemSelectionEvent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -47,7 +47,7 @@
                                                     VerticalOptions="Center"
                                                     WidthRequest="110"
                                                     MinimumValue="0"
-                                                    MaximumValue="10"
+                                                    MaximumValue="15"
                                                 />
                                                 <StackLayout HorizontalOptions="FillAndExpand" Padding="0,0,10,0">
                                                     <Label 
@@ -71,6 +71,42 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+            <Frame x:Name="FrContent"
+               BackgroundColor="#005980"
+               HorizontalOptions="FillAndExpand" VerticalOptions="End" 
+               HeightRequest="100">
+                <StackLayout x:Name="AlertContent" Orientation="Vertical" VerticalOptions="FillAndExpand" >
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                        <Label x:Name="LbTitle" FontSize="18" Text="Additional toppings charged at ₤1.75" TextColor="White"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Button 
+                            Text="RESET" 
+                            CornerRadius="30" 
+                            TextColor="White" 
+                            FontSize="22"
+                            BackgroundColor="Transparent" 
+                            BorderWidth="1" 
+                            BorderColor="White" 
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"
+                            Clicked="BtnReset_Clicked"
+                            > 
+                        </Button>
+                        <Button 
+                            Text="SAVE"
+                            CornerRadius="30"
+                            TextColor="White"
+                            FontSize="22"
+                            BackgroundColor="#3b9831"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"
+                            Clicked="BtnSave_Clicked"
+                            >
+                        </Button>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -15,8 +15,6 @@ namespace TGFDelivery.Views
                typeof(ToppingsPage),   // the parent object type
                null, propertyChanged: OnEventNameChanged);
 
-        private readonly IAlertDialogService alertDialogService;
-
         static void OnEventNameChanged(BindableObject bindable, object oldValue, object newValue)
         {
             // Property changed implementation goes here
@@ -33,7 +31,6 @@ namespace TGFDelivery.Views
 
         public ToppingsPage()
         {
-            alertDialogService = DependencyService.Get<IAlertDialogService>();
             InitializeComponent();
 
             System.Collections.ObjectModel.ObservableCollection<ToppingsModel> temps = new System.Collections.ObjectModel.ObservableCollection<ToppingsModel>();
@@ -57,7 +54,7 @@ namespace TGFDelivery.Views
             BindingContext = this;
         }
 
-        private async void ItemSelectionEvent(object sender, SelectedItemChangedEventArgs e)
+        private void ItemSelectionEvent(object sender, SelectedItemChangedEventArgs e)
         {
             var currentItem = e.SelectedItem as ToppingsModel;
             if (PreviousItem != null)
@@ -68,8 +65,22 @@ namespace TGFDelivery.Views
             {
                 currentItem.IsSelected = true;
                 PreviousItem = currentItem;
-                bool result = await alertDialogService.ShowDialogConfirmationAsync("Additional toppings charged at ₤1.75", null, "CANCEL", "SAVE");
             }
+        }
+
+        private void BtnReset_Clicked(object sender, System.EventArgs e)
+        {
+            ToppingList.SelectedItem = null;
+            foreach (var item in Products)
+            {
+                item.Order = 0;
+                item.IsSelected = false;
+            }
+        }
+
+        private void BtnSave_Clicked(object sender, System.EventArgs e)
+        {
+
         }
     }
 }
