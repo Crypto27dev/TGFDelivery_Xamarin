@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,26 @@ namespace TGFDelivery.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ToppingsPage : ContentPage
     {
+        public static readonly BindableProperty ProductsProperty = BindableProperty.Create(
+               "Products",        // the name of the bindable property
+               typeof(ObservableCollection<ToppingsModel>),     // the bindable property type
+               typeof(ToppingsPage),   // the parent object type
+               null, propertyChanged: OnEventNameChanged);
+
+        static void OnEventNameChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            // Property changed implementation goes here
+            ((ToppingsPage)bindable).Products = (ObservableCollection<ToppingsModel>)newValue;
+        }
+
+        public ObservableCollection<ToppingsModel> Products
+        {
+            get { return (ObservableCollection<ToppingsModel>)GetValue(ProductsProperty); }
+            set { SetValue(ProductsProperty, value); }
+        }
+
+        public ToppingsModel PreviousItem { set; get; }
+
         public ToppingsPage()
         {
             InitializeComponent();
@@ -36,8 +57,22 @@ namespace TGFDelivery.Views
                 };
                 temps.Add(model);
             }
-            ProCustomView.Products = temps;
-            BindingContext = ProCustomView;
+            Products = temps;
+            BindingContext = this;
+        }
+
+        private void ItemSelectionEvent(object sender, SelectedItemChangedEventArgs e)
+        {
+            var currentItem = e.SelectedItem as ToppingsModel;
+            if (PreviousItem != null)
+            {
+                PreviousItem.IsSelected = false;
+            }
+            if (currentItem != null)
+            {
+                currentItem.IsSelected = true;
+                PreviousItem = currentItem;
+            }
         }
     }
 }

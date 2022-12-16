@@ -3,13 +3,93 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:hlp="clr-namespace:TGFDelivery.Helpers"
              xmlns:Ctrl="clr-namespace:TGFDelivery.CustomViews"
              mc:Ignorable="d"
              x:Class="TGFDelivery.Views.ToppingsPage">
     <ContentPage.Content>
         <StackLayout Grid.Row="0" Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="0,10,0,0" BackgroundColor="#E5E5E5">
-            <Ctrl:ProductCardCustomView  x:Name="ProCustomView" />
+            <StackLayout Padding="10,3,10,3" Margin="0,0,0,0">
+                <ListView x:Name="ToppingList"  ItemsSource="{Binding Products}" RowHeight="110" SelectionMode="Single">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="4">
+                                    <yummy:PancakeView  CornerRadius="6" BackgroundColor="White">
+                                        <StackLayout Orientation="Horizontal"  VerticalOptions="FillAndExpand" Padding="0,0,8,0">
+                                            <StackLayout Padding="0" WidthRequest="100" HeightRequest="100">
+                                                <Image Source="{Binding MyPro.ImgUrl}" Aspect="AspectFill" />
+                                            </StackLayout>
+                                            <StackLayout  Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                                    <StackLayout Margin="0">
+                                                        <Label Text="{Binding MyPro.Name}" FontSize="18" TextColor="#303030"></Label>
+                                                    </StackLayout>
+                                                    <StackLayout>
+                                                        <Label Text="{Binding Calorie, StringFormat='{0}kcal'}" FontSize="16" TextColor="#6f6f6f"></Label>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                                        <StackLayout WidthRequest="20" VerticalOptions="CenterAndExpand">
+                                                            <Image IsVisible="{Binding IsVegan}" Source="calorie.png" Aspect="AspectFill"/>
+                                                        </StackLayout>
+                                                        <StackLayout VerticalOptions="CenterAndExpand">
+                                                            <Label IsVisible="{Binding IsVegan}" Text="Vegan Friendly" FontSize="16" TextColor="#6f6f6f"></Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="Center">
+                                                <Ctrl:SpinBox
+                                                    AmountValue="{Binding Order}"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="110"
+                                                    MinimumValue="0"
+                                                    MaximumValue="10"
+                                                >
+                                                    <Ctrl:SpinBox.Style>
+                                                        <Style TargetType="Ctrl:SpinBox">
+                                                            <Setter Property="IsVisible" Value="True" />
+                                                            <Style.Triggers>
+                                                               <DataTrigger TargetType="Ctrl:SpinBox"
+                                                                             Binding="{Binding Source={x:Reference ToppingListItem}, Path=SelectedItem, Mode=TwoWay}"
+                                                                             Value="{x:Null}"
+                                                                >
+                                                                    <Setter Property="IsVisible" Value="False" />
+                                                                </DataTrigger> 
+                                                                <!--     <DataTrigger TargetType="Ctrl:SpinBox"
+                                                                             Binding="{Binding Source={x:Reference cbSample}, Path=IsChecked}"
+                                                                             Value="True"
+                                                                >
+                                                                    <Setter Property="IsVisible" Value="True" />
+                                                                </DataTrigger> -->
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Ctrl:SpinBox.Style>
+                                                </Ctrl:SpinBox>
+                                                <StackLayout HorizontalOptions="FillAndExpand" Padding="0,0,10,0">
+                                                    <Label 
+                                                        IsVisible="{Binding Visible}" 
+                                                        WidthRequest="30" 
+                                                        Text="{Binding Order}" 
+                                                        TextColor="#4f4f4f" 
+                                                        FontSize="24" 
+                                                        VerticalTextAlignment="Center">
+                                                    </Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </yummy:PancakeView>
+                                    <!--<Frame BackgroundColor="White" CornerRadius="5" >
+                                                    
+                                                </Frame>-->
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
