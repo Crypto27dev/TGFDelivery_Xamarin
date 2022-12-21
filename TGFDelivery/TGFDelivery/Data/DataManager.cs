@@ -78,7 +78,7 @@ namespace TGFDelivery.Data
                 //}
 
 
-                Store store = await CoreServices.LoadMainMenu(storeProfile.StoreID, storeProfile.DeDataSourceName, DeServersUrl, AppSettings.MenuID);
+                Store store = await CoreServices.LoadMainMenu(storeProfile.StoreID, storeProfile.DeDataSourceName, DeServersUrl, storeProfile.DeStoreLinks.Photo, AppSettings.MenuID);
                 if (!store.IsValid)
                 {
                     return false;
@@ -697,7 +697,7 @@ namespace TGFDelivery.Data
                 OrderLine.Update(DeOrderLine);
             }
 
-            BASKET.AddLine(DeOrderLine);
+            BASKET.AddLine(ref DeOrderLine);
 
             result.Message = "success";
             result.TotalItemCount = BASKET.NumOfItem;
@@ -756,7 +756,7 @@ namespace TGFDelivery.Data
                 OrderLine PreviousOrderLine = DeBasket.DeOrderLines.FirstOrDefault(ordLine => ordLine.ID == OrderLineID.ToString());
                 DeBasket.DeleteLineByPos(OrderLineID);
                 //DeBasket.DeleteLine(PreviousOrderLine);
-                DeBasket.AddLine(DeOrderLine);
+                DeBasket.AddLine(ref DeOrderLine);
 
                 strResult = "basket";
             }
@@ -773,7 +773,7 @@ namespace TGFDelivery.Data
                 }
 
                 DeOrderLine.UpDatePrice();
-                DeBasket.AddLine(DeOrderLine);
+                DeBasket.AddLine(ref DeOrderLine);
             }
 
             BASKET = DeBasket;
@@ -1116,7 +1116,7 @@ namespace TGFDelivery.Data
                 DeBasket.DeleteLineByPos(OrderLineID);
             }
 
-            DeBasket.AddLine(DeOrderLine);
+            DeBasket.AddLine(ref DeOrderLine);
             BASKET = DeBasket;
             DEAL_ORDERLINE = null;
             CUSTOM_ORDERLINE = null;

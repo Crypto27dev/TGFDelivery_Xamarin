@@ -1,25 +1,29 @@
-﻿using System.Collections.ObjectModel;
-using TGFDelivery.Models;
-using TGFDelivery.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using WinPizzaData;
-using System.Linq;
-using TGFDelivery.Views;
+using TGFDelivery.Data;
+using TGFDelivery.Models;
+using System.Collections.ObjectModel;
 
 namespace TGFDelivery.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ToppingsPage : ContentPage
+    public partial class ToppingSelectorePage : ContentPage
     {
         public static readonly BindableProperty ProductsProperty = BindableProperty.Create(
-               "Products",        // the name of the bindable property
-               typeof(ObservableCollection<ToppingsModel>),     // the bindable property type
-               typeof(ToppingsPage),   // the parent object type
-               null, propertyChanged: OnEventNameChanged);
+            "Products",        // the name of the bindable property
+            typeof(ObservableCollection<ToppingsModel>),     // the bindable property type
+            typeof(ToppingsPage),   // the parent object type
+            null, propertyChanged: OnEventNameChanged);
 
         static void OnEventNameChanged(BindableObject bindable, object oldValue, object newValue)
         {
+            
             // Property changed implementation goes here
             ((ToppingsPage)bindable).Products = (ObservableCollection<ToppingsModel>)newValue;
         }
@@ -31,14 +35,14 @@ namespace TGFDelivery.Views
         }
 
         public ToppingsModel PreviousItem { set; get; }
-
-        public ToppingsPage()
+        public ToppingSelectorePage()
         {
-            InitializeComponent();    
+            InitializeComponent();
         }
 
-        private void ItemSelectionEvent(object sender, SelectedItemChangedEventArgs e)
+        private void ToppingList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+
             var currentItem = e.SelectedItem as ToppingsModel;
             if (PreviousItem != null)
             {
@@ -49,23 +53,18 @@ namespace TGFDelivery.Views
                 currentItem.IsSelected = true;
                 PreviousItem = currentItem;
             }
-           var hh = (ToppingData)BindingContext;
-            ToppingListCtr.ItemsSource = hh.Toppings.OrderByDescending(p => p.Order);
+         
         }
 
-        private void BtnReset_Clicked(object sender, System.EventArgs e)
-        {
-            ToppingListCtr.SelectedItem = null;
-            foreach (var item in Products)
-            {
-                item.Order = 0;
-                item.IsSelected = false;
-            }
-        }
-
-        private void BtnSave_Clicked(object sender, System.EventArgs e)
+        private void BtnReset_Clicked(object sender, EventArgs e)
         {
 
         }
+        private void BtnSave_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

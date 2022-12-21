@@ -344,7 +344,7 @@ namespace TGFDelivery.Views
         {
             try
             {
-                SideTabbedPage2Toppings sideTabbedPage = new SideTabbedPage2Toppings() { Title = TitleName4Topping };
+                SideTabbedPage2Toppings sideTabbedPage = new SideTabbedPage2Toppings(new WinPizzaData.WPProduct()) { Title = TitleName4Topping };
                 int Start = 0;
                 if (DataManager.CustomizeModel.Product.isHalfandHalf)
                 {

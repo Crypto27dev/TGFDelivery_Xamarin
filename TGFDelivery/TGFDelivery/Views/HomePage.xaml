@@ -34,8 +34,8 @@
                 </ContentView>
             </StackLayout>
             <StackLayout Grid.Row="1" Grid.Column="1" Padding="5,5,10,5" Margin="0">
-                <ContentView Margin="4" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Coral">
-                    <Image Source="home3.png" Aspect="Fill" HeightRequest="100" WidthRequest="100" />
+                <ContentView Margin="4"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Coral">
+                    <Image x:Name="Menue" Source="home3.png" Aspect="Fill"  HeightRequest="100" WidthRequest="100" />
                 </ContentView>
             </StackLayout>
             <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Padding="10,5,10,5" Margin="0">

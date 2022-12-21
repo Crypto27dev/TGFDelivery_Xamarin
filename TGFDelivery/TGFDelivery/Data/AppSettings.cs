@@ -29,7 +29,7 @@
         #endregion
 
         public static string AllowedHosts = "*";
-        public static string ShareSiteUrl = @"https://www.korush.eu/TGFPIZZA2020/";
+        public static string ShareSiteUrl = @"https://";
         public static string UserVarifyMsg = "Welcome to TGFPIZZA, for your first login you'll need the activation ";
         public static string CountryPhoneCode = "+49";
         public static string CountryCode = "DE";

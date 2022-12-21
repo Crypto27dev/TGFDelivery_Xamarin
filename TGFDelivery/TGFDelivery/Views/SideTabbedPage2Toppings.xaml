@@ -3,13 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:TGFDelivery.Views"
+             xmlns:Topping="clr-namespace:TGFDelivery.Views"
              xmlns:Ctrl="clr-namespace:TGFDelivery.CustomViews"
+                 xmlns:local="clr-namespace:TGFDelivery.Views"
+
              mc:Ignorable="d"
              NavigationPage.HasBackButton="True"
              Title="CUSTOMIZE"
-             x:Class="TGFDelivery.Views.SideTabbedPage2Toppings">
-    <ContentPage Title="SAUCE" />
-    <ContentPage Title="CHEESE" />
-    <local:ToppingsPage Title="TOPPINGS"/>
+             x:Class="TGFDelivery.Views.SideTabbedPage2Toppings"
+            ItemTemplate="{StaticResource ToppingDataTemplateSelector}">
+        <TabbedPage.Resources>
+            <ResourceDictionary>
+                <DataTemplate x:Key="ToppingTemplate">
+                <Topping:ToppingsPage Title="{Binding Name}" BindingContext="{Binding }" 
+                                      Products="{Binding Toppings}" IconImageSource="monkeyicon.png"/>
+            </DataTemplate>
+                <DataTemplate x:Key="ToppingSelctionTemplate">
+                <Topping:ToppingSelectorePage Title="{Binding Name}" BindingContext="{Binding }" 
+                                                     />
+            </DataTemplate>
+                <local:ToppingDataTemplateSelector x:Key="ToppingDataTemplateSelector"
+                ToppingTemplate="{StaticResource ToppingTemplate}"
+                ToppingSelctionTemplate="{StaticResource ToppingSelctionTemplate}" />
+            </ResourceDictionary>
+    </TabbedPage.Resources>
+        <!--<TabbedPage.ItemTemplate>
+        <DataTemplate>
+            --><!--<local:ToppingsPage Title="{Binding Name}" BindingContext="{Binding }" Products="{Binding Toppings}" IconImageSource="monkeyicon.png"/>--><!--           
+        </DataTemplate>
+    </TabbedPage.ItemTemplate>-->
 </TabbedPage>

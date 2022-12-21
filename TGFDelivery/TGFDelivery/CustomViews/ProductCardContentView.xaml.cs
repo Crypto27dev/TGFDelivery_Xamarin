@@ -4,7 +4,7 @@ using TGFDelivery.Models;
 using TGFDelivery.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using WinPizzaData;
 namespace TGFDelivery.CustomViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -33,7 +33,9 @@ namespace TGFDelivery.CustomViews
             Button BtnCustomize = sender as Button;
             if (BtnCustomize != null)
             {
-                await App._NavigationPage.PushAsync(new SideTabbedPage2Toppings());
+               var Pro = (BtnCustomize.BindingContext as ProductsModel).MyPro;
+               if (Pro.Modifiable)
+                await App._NavigationPage.PushAsync(new SideTabbedPage2Toppings(Pro));
             }
         }
         public ProductCardContentView()

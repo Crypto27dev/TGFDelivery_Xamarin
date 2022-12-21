@@ -272,7 +272,7 @@ namespace TGFDelivery.Data
                 return;
             }
             DeSeversUrl = DataManager.AdjustServcePoints(await CoreServices.GetWebServicesEndPoint(DeStoreProfile.StoreID), DeStoreProfile);
-            DeStore = new StoreData(await CoreServices.LoadMainMenu(DeStoreProfile.StoreID, DeStoreProfile.DeDataSourceName, DeSeversUrl, AppSettings.MenuID));
+            DeStore = new StoreData(await CoreServices.LoadMainMenu(DeStoreProfile.StoreID, DeStoreProfile.DeDataSourceName, DeSeversUrl, DeStoreProfile.DeStoreLinks.Photo, AppSettings.MenuID));
             if (!DeStore.Store.IsValid)
             {
                 await UserDialogs.Instance.AlertAsync("Server Error", "LoadMenu", "Cancel");

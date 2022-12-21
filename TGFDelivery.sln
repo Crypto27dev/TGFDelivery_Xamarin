@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGFDelivery.Android", "TGFDelivery\TGFDelivery.Android\TGFDelivery.Android.csproj", "{018AB359-3B17-404A-BDB2-6A873F7E1AB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGFDelivery", "TGFDelivery\TGFDelivery\TGFDelivery.csproj", "{F8947642-C6C8-4D02-A7CA-CBDB4701D850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TGFDelivery", "TGFDelivery\TGFDelivery\TGFDelivery.csproj", "{F8947642-C6C8-4D02-A7CA-CBDB4701D850}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGFDelivery.iOS", "TGFDelivery\TGFDelivery.iOS\TGFDelivery.iOS.csproj", "{65514EB5-608C-4D55-A34A-AA719398EC78}"
 EndProject

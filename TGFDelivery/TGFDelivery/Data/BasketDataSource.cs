@@ -258,7 +258,7 @@ namespace TGFDelivery.Data
                 }
             }
         }
-        public int TableID
+        public long TableID
         {
             get { return _OrderHeader.TableID; }
             set { _OrderHeader.TableID = value; OnPropertyChanged(); }

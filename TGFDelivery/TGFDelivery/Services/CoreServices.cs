@@ -64,7 +64,7 @@ namespace TGFDelivery.Services
         /// </summary>
         /// <param name="StoreID">StoreID</param>
         /// <returns></returns>
-        public async static Task<Store> LoadMainMenu(string StoreID, string DataSourceName, ServersUrl DeServersUrl, string MenuID)
+        public async static Task<Store> LoadMainMenu(string StoreID, string DataSourceName, ServersUrl DeServersUrl, string ImgDomain, string MenuID)
         {
             string strMenuSRV = DeServersUrl.MenuSRV;
 
@@ -75,7 +75,19 @@ namespace TGFDelivery.Services
             if (Msg.DeMsgType == WinPizzaEnums.MessageType.ACTIONSUCCESS)
             {
                 var dd = (string)JsonConvert.DeserializeObject((string)Msg.WinPizzaObject, typeof(string));
-                StoreData = Store.ConvertToStore(XElement.Parse(dd));
+                try
+                {
+                    var ss = XElement.Parse(dd);
+                    StoreData = Store.ParsToStore(ss, "ONLINE", ImgDomain);
+                    var gg = StoreData.ToppingGrp;
+
+
+                }
+                catch(Exception c)
+                {
+
+                }
+              //  StoreData.MakeMenuCurrent(MenuID);
             }
             //string contents = File.ReadAllText(@"D:\Process\TGFPizza\Complete\menu.txt");
             //StoreData = Store.ConvertToStore(XElement.Parse((string)JsonConvert.DeserializeObject((string)contents, typeof(string))));

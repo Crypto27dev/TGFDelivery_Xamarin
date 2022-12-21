@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using TGFDelivery.Data;
 using WinPizzaData;
+using System.ComponentModel;
+
 namespace TGFDelivery.Models
 {
 
@@ -29,8 +31,15 @@ namespace TGFDelivery.Models
         {
             IsSelected = false;
             MyPro = Item;
-            MyPro.ImgUrl = StoreDataSource.DeStoreProfile.DeStoreLinks.Photo + MyPro.ImgUrl;
+           // MyPro.ImgUrl = MyPro.ImgUrl;
         }
+        public string ImgUrl
+        {
+            get { return MyPro.ImgUrl; }
+            //           set { _ImgUrl = value; OnPropertyChanged(); }
+        }
+
+
         WPBaseProduct _MYPro;
         public WPBaseProduct MyPro
         {
@@ -78,14 +87,34 @@ namespace TGFDelivery.Models
         {
             IsSelected = false;
             Order = 0;
-            MyPro = Item;
-            MyPro.ImgUrl = StoreDataSource.DeStoreProfile.DeStoreLinks.Photo + MyPro.ImgUrl;
+            MyPro = Item;           
         }
         WPBaseProduct _MYPro;
         public WPBaseProduct MyPro
         {
             get { return _MYPro; }
             set { _MYPro = value; OnPropertyChanged(); }
+        }
+    
+        public string ImgUrl
+        {
+            get { return MyPro.ImgUrl; }
+ //           set { _ImgUrl = value; OnPropertyChanged(); }
+        }
+      
+        public string Name
+        {
+            get { return MyPro.Name; }
+           // set { _ImgUrl = value; OnPropertyChanged(); }
+        }
+        public bool OneChoice
+        {
+            get { return MyPro.OneChice; }
+            // set { _ImgUrl = value; OnPropertyChanged(); }
+        }
+        public override string ToString()
+        {
+            return Name;
         }
     }
 
@@ -99,12 +128,18 @@ namespace TGFDelivery.Models
         {
             IsSelected = false;
             MyGr = Item;
-            MyGr.ImgUrl = StoreDataSource.DeStoreProfile.DeStoreLinks.Photo + MyGr.ImgUrl;
+           
             if (Item.DeProducts.Count > 0)
             {
                 Item.DeProducts.ForEach(
                     p => MyPros.Add(new ProductsModel(p)));
             }
+        }
+
+        public string ImgUrl
+        {
+            get { return MyGr.ImgUrl; }
+            //           set { _ImgUrl = value; OnPropertyChanged(); }
         }
         Group _MYGr;
         public Group MyGr
